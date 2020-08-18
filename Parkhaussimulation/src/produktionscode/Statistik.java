@@ -9,11 +9,15 @@ import java.util.stream.DoubleStream;
 // Author Lars Gebhard
 public class Statistik extends AbstractPublisher{
 
+	private List<Double> einnahmenList;
 	private List<Double> parkdauerList;
 	private List<Double> state = Arrays.asList(new Double[8]); // [GesamtEinnahmen, AvgEinnahmen, AvGParkdauer,
 																// Besucheranzahl, MinEinnahmen, MinParkdauer,
 																// MaxEinnahmen, MaxParkdauer]
-
+	private int currentFrauen;
+	private int currentAny;
+	private int currentFamilie;
+	private int currentBehinderte;
 	private int currentBesucher;
 
 	private int gesamtBesucher;
@@ -22,7 +26,17 @@ public class Statistik extends AbstractPublisher{
 	private int gesamtFamilie;
 	private int gesamtBehinderte;
 
-		private double parkdauerAvg;
+	private double einnahmenFrauen;
+	private double einnahmenAny;
+	private double einnahmenFamilie;
+	private double einnahmenBehinderte;
+
+	private double gesamtEinnahmen;
+	private double einnahmenAvg;
+	private double einnahmenMin;
+	private double einnahmenMax;
+	
+	private double parkdauerAvg;
 	private double parkdauerMin;
 	private double parkdauerMax;
 
@@ -89,5 +103,177 @@ public class Statistik extends AbstractPublisher{
 	// Author Lars Gebhard
 	public double getParkdauerMax() {
 		return parkdauerMax / 1000;
+	}
+	
+	//Author: Marcel Blasius
+	
+	//Besucher Funktionen
+	public void addBesucher(String art) {
+		gesamtBesucher++;
+		currentBesucher = getCurrentBesucher() + 1;
+
+		this.setState(3, gesamtBesucher);
+
+		switch (art) {
+		case "Frau": {
+			currentFrauen = getCurrentFrauen() + 1;
+			gesamtFrauen++;
+			break;
+		}
+		case "any": {
+			currentAny = getCurrentAny() + 1;
+			gesamtAny++;
+			break;
+		}
+		case "Familie": {
+			currentFamilie = getCurrentFamilie() + 1;
+			gesamtFamilie++;
+			break;
+		}
+		case "Behinderte": {
+			currentBehinderte = getCurrentBehinderte() + 1;
+			gesamtBehinderte++;
+			break;
+		}
+		default:
+			System.out.println("Fehler Statistik: addBesucher: " + art);
+		}
+
+	}
+
+	//Author: Marcel Blasius
+	
+	public void removeBesucher(String art) {
+		
+		if(currentBesucher != 0) {
+			currentBesucher = getCurrentBesucher() - 1;
+
+			switch (art) {
+			case "Frau":
+				currentFrauen = getCurrentFrauen() - 1;
+				break;
+			case "any":
+				currentAny = getCurrentAny() - 1;
+				break;
+			case "Familie":
+				currentFamilie = getCurrentFamilie() - 1;
+				break;
+			case "Behinderte":
+				currentBehinderte = getCurrentBehinderte() - 1;
+				break;
+			default:
+				System.out.println("Fehler Statistik removeBesucher: " + art);
+			}
+		}
+	}
+
+	
+	//Author: Marcel Blasius
+	
+	//Alle Besucher als Array ausgeben
+	public int[] getGesamtBesucherArray() {
+		int[] s = new int[4];
+		s[0] = gesamtFrauen;
+		s[1] = gesamtAny;
+		s[2] = gesamtBehinderte;
+		s[3] = gesamtFamilie;
+		return s;
+	}
+	
+	//Author Marcel Blasius
+	public double getGesamtEinnahmen() {
+
+		return gesamtEinnahmen;
+
+	}
+	
+	//Author Marcel Blasius
+	public double getEinnahmenAvg() {
+		return einnahmenAvg;
+	}
+
+	//Author Marcel Blasius
+	public double getEinnahmenMin() {
+		return einnahmenMin;
+
+	}
+
+	//Author Marcel Blasius
+	public double getEinnahmenMax() {
+		return einnahmenMax;
+	}
+
+	//Author Marcel Blasius
+	public int getCurrentFrauen() {
+		return currentFrauen;
+	}
+
+	//Author Marcel Blasius
+	public int getCurrentAny() {
+		return currentAny;
+	}
+
+	//Author Marcel Blasius
+	public int getCurrentBehinderte() {
+		return currentBehinderte;
+	}
+	
+	//Author Marcel Blasius
+	public int getCurrentFamilie() {
+		return currentFamilie;
+	}
+
+	//Author Marcel Blasius
+	public int getCurrentBesucher() {
+		return currentBesucher;
+	}
+	
+	//Author Marcel Blasius
+	public int getGesamtBesucher() {
+		return gesamtBesucher;
+	}
+	
+	//Author Teamarbeit
+	public void undo(String art) {
+		
+		gesamtBesucher--;
+			switch (art) {
+			case "Frau":
+				gesamtFrauen--;
+				break;
+			case "any":
+				gesamtAny--;
+				break;
+			case "Familie":
+				gesamtFamilie--;
+				break;
+			case "Behinderte":
+				gesamtBehinderte--;
+				break;
+			default:
+				System.out.println("Fehler Statistik undo: " + art);
+			}
+		
+		if(currentBesucher > 0) {
+			currentBesucher--;
+
+			switch (art) {
+			case "Frau":
+				currentFrauen--;
+				break;
+			case "any":
+				currentAny--;
+				break;
+			case "Familie":
+				currentFamilie--;
+				break;
+			case "Behinderte":
+				currentBehinderte--;
+				break;
+			default:
+				System.out.println("Fehler Statistik undo: " + art);
+			}
+		}
+		
 	}
 }
