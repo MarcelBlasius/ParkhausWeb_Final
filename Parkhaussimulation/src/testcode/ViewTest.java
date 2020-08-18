@@ -82,12 +82,12 @@ class ViewTest {
 	@DisplayName("Einnahmen MIN wird upgedatet")
 	void EinnahmenMinViewTest() {
 		
-		EinnahmenMinView view = new EinnahmenMinView();
-		view.subscribe(p);
+		View_EinnahmenMin view = new View_EinnahmenMin();
+		view.subscribe(s);
 		assertEquals(null, view.getView());
-		p.addEinnahme(1, "any");
+		s.addEinnahme(1, "any");
 		assertEquals(1.0, view.getView());
-		p.addEinnahme(0.5, "any");
+		s.addEinnahme(0.5, "any");
 		assertEquals(0.5, view.getView());
 		
 	}
@@ -97,12 +97,12 @@ class ViewTest {
 	@DisplayName("Einnahmen Max wird upgedatet")
 	void EinnahmenMaxViewTest() {
 		
-		EinnahmenMaxView view = new EinnahmenMaxView();
-		view.subscribe(p);
+		View_EinnahmenMax view = new View_EinnahmenMax();
+		view.subscribe(s);
 		assertEquals(null, view.getView());
-		p.addEinnahme(1, "any");
+		s.addEinnahme(1, "any");
 		assertEquals(1.0, view.getView());
-		p.addEinnahme(2, "any");
+		s.addEinnahme(2, "any");
 		assertEquals(2.0, view.getView());
 		
 	}
