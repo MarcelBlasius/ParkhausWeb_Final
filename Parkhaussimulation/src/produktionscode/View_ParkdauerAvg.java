@@ -1,5 +1,6 @@
 package produktionscode;
 
+//Author: Marius Bauerfeind
 public class View_ParkdauerAvg extends View{
 	Double view;
 	
