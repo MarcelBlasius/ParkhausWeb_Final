@@ -1,5 +1,6 @@
 package produktionscode;
 
+//Author: Marius Bauerfeind
 public class View_ParkdauerMin extends View {
 	Double view;
 	
