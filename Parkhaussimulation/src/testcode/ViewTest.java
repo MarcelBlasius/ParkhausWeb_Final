@@ -106,4 +106,34 @@ class ViewTest {
 		assertEquals(2.0, view.getView());
 		
 	}
+	
+	//Author: Marius Bauerfeind
+	@Test
+	@DisplayName("Parkdauer Min wird upgedatet")
+	void ParkdauerMinViewTest() {
+		
+		View_ParkdauerMin view = new View_ParkdauerMin();
+		view.subscribe(s);
+		assertEquals(null, view.getView());
+		s.addParkdauer(100);
+		assertEquals(100.0, view.getView());
+		s.addParkdauer(50);
+		assertEquals(50.0, view.getView());
+		
+	}
+	
+	//Author: Marius Bauerfeind
+	@Test
+	@DisplayName("Parkdauer Max wird upgedatet")
+	void ParkdauerMaxViewTest() {
+		
+		View_ParkdauerMax view = new View_ParkdauerMax();
+		view.subscribe(s);
+		assertEquals(null, view.getView());
+		s.addParkdauer(100);
+		assertEquals(100.0, view.getView());
+		s.addParkdauer(200);
+		assertEquals(200.0, view.getView());
+		
+	}
 }
