@@ -76,4 +76,34 @@ class ViewTest {
 		assertEquals(1, view.getView());
 		
 	}
+	
+	//Author: Lars Gebhard
+	@Test
+	@DisplayName("Einnahmen MIN wird upgedatet")
+	void EinnahmenMinViewTest() {
+		
+		EinnahmenMinView view = new EinnahmenMinView();
+		view.subscribe(p);
+		assertEquals(null, view.getView());
+		p.addEinnahme(1, "any");
+		assertEquals(1.0, view.getView());
+		p.addEinnahme(0.5, "any");
+		assertEquals(0.5, view.getView());
+		
+	}
+	
+	//Author: Lars Gebhard
+	@Test
+	@DisplayName("Einnahmen Max wird upgedatet")
+	void EinnahmenMaxViewTest() {
+		
+		EinnahmenMaxView view = new EinnahmenMaxView();
+		view.subscribe(p);
+		assertEquals(null, view.getView());
+		p.addEinnahme(1, "any");
+		assertEquals(1.0, view.getView());
+		p.addEinnahme(2, "any");
+		assertEquals(2.0, view.getView());
+		
+	}
 }
