@@ -65,5 +65,34 @@ class StatistikTest {
 		
 	}
 	
+	//Author: Lars Gebhard
+	@Test
+	@DisplayName("BesucherArray wird korrekt ausgegeben")
+	void getGesamtBesucherArrayTest() {
+		
+		int[] BesucherArray = {1,1,1,1};
+		
+		s.addBesucher("any");
+		s.addBesucher("Familie");
+		s.addBesucher("Frau");
+		s.addBesucher("Behinderte");
+		assertArrayEquals(BesucherArray, s.getGesamtBesucherArray());
+		
+	}
+	
+	//Author: Lars Gebhard
+	@Test
+	@DisplayName("EinnahmeArray wird korrekt ausgegeben")
+	void getEinnahmeKategorieArrayTest() {
+		
+		double[] einnahmeKategorieArray = {1, 1, 1, 1};
+		
+		s.addEinnahme(100 , "any");
+		s.addEinnahme(100, "Familie");
+		s.addEinnahme(100, "Frau");
+		s.addEinnahme(100, "Behinderte");
+		assertArrayEquals(einnahmeKategorieArray, s.getEinnahmenKategorieArray());
+		
+	}
 
 }
