@@ -276,4 +276,79 @@ public class Statistik extends AbstractPublisher{
 		}
 		
 	}
+	
+	//Einnaehmen Funktionen
+	
+	
+	//Author Marius Bauerfeind
+	
+	//Einnahme Stream erzeugen
+	private DoubleStream getEinnahmeStream() {
+
+		double[] array = new double[einnahmenList.size()];
+		int pointer = 0;
+		
+		Iterator<Double> it = einnahmenList.iterator();
+		
+		while(it.hasNext()) {
+			array[pointer++] = it.next();		
+		}
+		
+		return Arrays.stream(array);
+		
+	}
+	
+	//Author Marius Bauerfeind
+	//Alle Einnahmen pro Kategorie als Array ausgeben
+	public double[] getEinnahmenKategorieArray() {
+		double[] s = new double[4];
+		s[0] = einnahmenFrauen;
+		s[1] = einnahmenAny;
+		s[2] = einnahmenBehinderte;
+		s[3] = einnahmenFamilie;
+		return s;
+	}
+	
+	//Author Marius Bauerfeind
+	//Einnahme hinzufuegen
+	public void addEinnahme(double x, String art) {
+
+		
+		einnahmenList.add(x / 100);
+		
+		switch (art) {
+		case "Frau": {
+			einnahmenFrauen += x / 100;
+			break;
+		}
+		case "any": {
+			einnahmenAny += x / 100;
+			break;
+		}
+		case "Familie": {
+			einnahmenFamilie += x / 100;
+			break;
+		}
+		case "Behinderte":{
+			einnahmenBehinderte += x / 100;
+			break;
+		}
+		default:
+			System.out.println("Statistik: Einnahme: " + art);
+		}
+		
+		gesamtEinnahmen = getEinnahmeStream().sum();
+		einnahmenAvg = getEinnahmeStream().average().orElse(0d);
+		
+		einnahmenMin = getEinnahmeStream().min().orElse(0d);
+		einnahmenMax = getEinnahmeStream().max().orElse(0d);
+		
+		
+		this.setState(0, gesamtEinnahmen);
+		this.setState(1, einnahmenAvg);
+		this.setState(4, einnahmenMin);
+		this.setState(6, einnahmenMax);
+		
+	}
+
 }
