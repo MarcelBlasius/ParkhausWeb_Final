@@ -43,6 +43,7 @@ class StatistikTest {
 		
 	}
 	
+	//Author: Marcel Blasius
 	@Test
 	@DisplayName("Statistik ueber Besucher beim Hinzufuegen wird korrekt aktualisiert")
 	void addBesucherTest() {
@@ -51,7 +52,8 @@ class StatistikTest {
 		assertEquals(1, s.getGesamtBesucher());
 		
 	}
-
+	
+	//Author: Marcel Blasius
 	@Test
 	@DisplayName("Statistik ueber Besucher beim Entfernen wird korrekt aktualisiert")
 	void removeBesucherTest() {
