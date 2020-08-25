@@ -37,7 +37,7 @@ public class ParkhausServlet extends HttpServlet {
 
 		if ("cmd".equals(command)) {
 			PrintWriter out = response.getWriter();
-			String ausgabe = c.doGet(command, param, response);
+			String ausgabe = c.doGet( param);
 			out.println(ausgabe);
 			System.out.println(ausgabe);
 		}
@@ -99,7 +99,7 @@ public class ParkhausServlet extends HttpServlet {
 		ServletContext application = getApplication();
 		Controller c = (Controller) application.getAttribute("Controller");
 		if (c == null) {
-			c = new Controller();
+			c = Controller.getInstance();
 		}
 		return c;
 	}
