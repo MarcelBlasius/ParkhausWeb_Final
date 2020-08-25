@@ -42,6 +42,7 @@ public class Statistik extends AbstractPublisher{
 
 	// Author Lars Gebhard
 	public Statistik(List<Double> einnahmenList, List<Double> parkdauerList) {
+		this.einnahmenList = einnahmenList;
 		this.parkdauerList = parkdauerList;
 		
 	}
