@@ -1,27 +1,35 @@
 package produktionscode;
-
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import javax.json.Json;
 import javax.json.JsonObject;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletResponse;
 
 public class Controller {
 	// Author: Teamarbeit
-
-	private IF_Parkhaus p = new Parkhaus("0", 9, new ArrayList<Car>(),
-			new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
+	DecimalFormat formatToEuro = new DecimalFormat("#0.00");
+	DecimalFormat formatToSeconds = new DecimalFormat("#0.000");
+	private IF_Parkhaus p;
+	private Statistik s;
+	
+	// Author: Lars Gebhard
+	private static Controller instance = null;
+	private Controller() {
+		this.p = new Parkhaus("0", 9, new ArrayList<Car>(),
+				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
+		s = p.getStatistik();
+		
+	}
+	// Author: Lars Gebhard
+	public static Controller getInstance() {
+		if(instance == null) {
+			instance = new Controller();
+		}
+		return instance;
+	}
 
 	// Author: Teamarbeit
-	public String doGet(String cmd, String param, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		DecimalFormat formatToEuro = new DecimalFormat("#0.00");
-		DecimalFormat formatToSeconds = new DecimalFormat("#0.000");
-
-		Statistik s = p.getStatistik();
+	public String doGet(String param){
 
 		switch (param) {
 
@@ -30,7 +38,7 @@ public class Controller {
 		}
 
 		case ("avg"): {
-			return avg;
+			return avg();
 		}
 
 		case ("Besucheranzahl"): {
@@ -67,49 +75,49 @@ public class Controller {
 		switch (event) {
 		
 		case ("enter"): {
-			return enter();
+			return enter(params);
 		}
 
 		case ("leave"): {
-			return leave();
+			return leave(params);
 		}
 		default:System.out.println("Event im Post nicht gefunden "+event);
 
 		}
 
 		// Default return;
-		return null;}
-	
+		return null;
+	}
 
-//Author: Marius Bauerfeind
+	// Author: Marius Bauerfeind
 	private String Gesamteinnahmen() {
 		return ("Gesamteinnahmen: " + formatToEuro.format(s.getGesamtEinnahmen()) + " Euro");
 	}
 
-	//Author: Marius Bauerfeind
+	// Author: Marius Bauerfeind
 	private String avg() {
 		return ("Durchschnittspreis: " + formatToEuro.format(s.getEinnahmenAvg()) + " Euro | " + "Durchschnittsdauer: "
 				+ formatToSeconds.format(s.getParkdauerAvg()) + " Sekunden");
 	}
 
-	//Author: Marius Bauerfeind
+	// Author: Marius Bauerfeind
 	private String Besucheranzahl() {
 		return (s.getGesamtBesucher() + " Besucher");
 	}
 
-	//Author: Marius Bauerfeind
+	// Author: Marius Bauerfeind
 	private String min() {
 		return ("Min Parkgebuehr: " + formatToEuro.format(s.getEinnahmenMin()) + " Euro bei "
 				+ formatToSeconds.format(s.getParkdauerMin()) + " Sekunden Parkdauer");
 	}
 
-	//Author: Marius Bauerfeind
+	// Author: Marius Bauerfeind
 	private String max() {
 		return ("max Parkgebuehr: " + formatToEuro.format(s.getEinnahmenMax()) + " Euro bei "
 				+ formatToSeconds.format(s.getParkdauerMax()) + " Sekunden Parkdauer");
 	}
 
-	//Author: Marius Bauerfeind
+	// Author: Marius Bauerfeind
 	private String Anteil_Besucher() {
 		int[] besuchergesamt = s.getGesamtBesucherArray();
 
@@ -124,7 +132,7 @@ public class Controller {
 		return root.toString();
 	}
 
-	//Author: Marius Bauerfeind
+	// Author: Marius Bauerfeind
 	private String Einnahmen_pro_Kategorie() {
 
 		double[] einnahmenKategorie = s.getEinnahmenKategorieArray();
@@ -140,13 +148,13 @@ public class Controller {
 		return (root.toString());
 	}
 
-	//Author: Marius Bauerfeind
-	private String enter() {
+	// Author: Marius Bauerfeind
+	private String enter(String[] params) {
 		return String.valueOf(p.add(new Car(params[1], params[8])));
 	}
 
-	//Author: Marius Bauerfeind
-	private String leave() {
+	// Author: Marius Bauerfeind
+	private String leave(String[] params) {
 		String priceString = params[4];
 		float dauer = Float.parseFloat(params[3]);
 		Car[] cars = p.cars();
@@ -164,12 +172,19 @@ public class Controller {
 
 		if (c != null && !"_".equals(priceString)) {
 			float price = Float.parseFloat(priceString);
-			p.getStatistik().addEinnahme(price, params[8]);
-			p.getStatistik().addParkdauer(dauer);
+			s.addEinnahme(price, params[8]);
+			s.addParkdauer(dauer);
 		}
-		break;
+		
+		if(c == null) {
+			return "Car ist null";
+		} else {
+		return c.getID();
+		}
 	}
-
 	
-
+	// Author: Lars Gebhard
+	public void reset(){
+		instance = null;
+	}
 }
