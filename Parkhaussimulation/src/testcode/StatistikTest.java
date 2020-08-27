@@ -13,13 +13,18 @@ import produktionscode.*;
 class StatistikTest {
 
 	Statistik s;
-	private View_GesamtEinnahmen view_gesamtEinnahmen = new View_GesamtEinnahmen();
+	private View_GesamtEinnahmen view_gesamtEinnahmen;
+	private View_BesucherAnzahl view_besucherAnzahl;
 	
 	//Author: Teamarbeit
 	@BeforeEach
 	void setup() {
 		s =	new Statistik(new ArrayList<Double>(), new ArrayList<Double>());
+		view_gesamtEinnahmen = new View_GesamtEinnahmen();
+		view_besucherAnzahl = new View_BesucherAnzahl();
+		
 		view_gesamtEinnahmen.subscribe(s);
+		view_besucherAnzahl.subscribe(s);
 	}
 	
 	//Author: Marius Bauerfeind
@@ -48,9 +53,9 @@ class StatistikTest {
 	@Test
 	@DisplayName("Statistik ueber Besucher beim Hinzufuegen wird korrekt aktualisiert")
 	void addBesucherTest() {
-		assertEquals(0, s.getGesamtBesucher());
+		assertEquals(0, view_besucherAnzahl.getView());
 		s.addBesucher("any");
-		assertEquals(1, s.getGesamtBesucher());
+		assertEquals(1, view_besucherAnzahl.getView());
 		
 	}
 	
@@ -58,11 +63,11 @@ class StatistikTest {
 	@Test
 	@DisplayName("Statistik ueber Besucher beim Entfernen wird korrekt aktualisiert")
 	void removeBesucherTest() {
-		assertEquals(0, s.getGesamtBesucher());
+		assertEquals(0, view_besucherAnzahl.getView());
 		s.removeBesucher("any");
-		assertEquals(0, s.getGesamtBesucher());
+		assertEquals(0, view_besucherAnzahl.getView());
 		s.addBesucher("any");
-		assertEquals(1, s.getGesamtBesucher());
+		assertEquals(1, view_besucherAnzahl.getView());
 		
 	}
 	

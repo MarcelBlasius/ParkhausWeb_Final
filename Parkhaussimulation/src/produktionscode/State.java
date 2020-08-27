@@ -35,7 +35,7 @@ public class State implements IF_State{
     public Integer getBesucheranzahl() {
         return Besucheranzahl;
     }
-    public void setBesucheranzahl(Integer besucheranzahl) {
+    public void setBesucheranzahl(int besucheranzahl) {
         Besucheranzahl = besucheranzahl;
     }
     public Double getMinEinnahmen() {
