@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import produktionscode.IF_State;
+import produktionscode.State;
 
 class StateTest {
 	
