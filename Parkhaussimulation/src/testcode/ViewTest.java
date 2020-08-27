@@ -86,9 +86,9 @@ class ViewTest {
 		view.subscribe(s);
 		assertEquals(null, view.getView());
 		s.addEinnahme(1, "any");
-		assertEquals(1.0, view.getView());
+		assertEquals(0.01, view.getView());
 		s.addEinnahme(0.5, "any");
-		assertEquals(0.5, view.getView());
+		assertEquals(0.005, view.getView());
 		
 	}
 	
@@ -101,9 +101,9 @@ class ViewTest {
 		view.subscribe(s);
 		assertEquals(null, view.getView());
 		s.addEinnahme(1, "any");
-		assertEquals(1.0, view.getView());
+		assertEquals(0.01, view.getView());
 		s.addEinnahme(2, "any");
-		assertEquals(2.0, view.getView());
+		assertEquals(0.02, view.getView());
 		
 	}
 	

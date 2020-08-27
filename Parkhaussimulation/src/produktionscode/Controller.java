@@ -11,6 +11,15 @@ public class Controller {
 	DecimalFormat formatToSeconds = new DecimalFormat("#0.000");
 	private IF_Parkhaus p;
 	private Statistik s;
+	private View_BesucherAnzahl view_besucherAnzahl = new View_BesucherAnzahl();
+	private View_EinnahmenAvg view_einnahmenAvg = new View_EinnahmenAvg();
+	private View_EinnahmenMax view_einnahmenMax = new View_EinnahmenMax();
+	private View_EinnahmenMin view_einnahmenMin = new View_EinnahmenMin();
+	private View_GesamtEinnahmen view_gesamtEinnahmen = new View_GesamtEinnahmen();
+	private View_ParkdauerAvg view_parkdauerAvg = new View_ParkdauerAvg();
+	private View_ParkdauerMax view_parkdauerMax = new View_ParkdauerMax();
+	private View_ParkdauerMin view_parkdauerMin = new View_ParkdauerMin();
+	
 	
 	// Author: Lars Gebhard
 	private static Controller instance = null;
@@ -19,6 +28,15 @@ public class Controller {
 				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
 		s = p.getStatistik();
 		
+		//Views als Teamarbeit
+		view_besucherAnzahl.subscribe(s);
+		view_einnahmenAvg.subscribe(s);
+		view_einnahmenMax.subscribe(s);
+		view_einnahmenMin.subscribe(s);
+		view_gesamtEinnahmen.subscribe(s);
+		view_parkdauerAvg.subscribe(s);
+		view_parkdauerMax.subscribe(s);
+		view_parkdauerMin.subscribe(s);
 	}
 	// Author: Lars Gebhard
 	public static Controller getInstance() {
@@ -91,30 +109,30 @@ public class Controller {
 
 	// Author: Marius Bauerfeind
 	private String Gesamteinnahmen() {
-		return ("Gesamteinnahmen: " + formatToEuro.format(s.getGesamtEinnahmen()) + " Euro");
+		return ("Gesamteinnahmen: " + formatToEuro.format(view_gesamtEinnahmen.getView()) + " Euro");
 	}
 
 	// Author: Marius Bauerfeind
 	private String avg() {
-		return ("Durchschnittspreis: " + formatToEuro.format(s.getEinnahmenAvg()) + " Euro | " + "Durchschnittsdauer: "
-				+ formatToSeconds.format(s.getParkdauerAvg()) + " Sekunden");
+		return ("Durchschnittspreis: " + formatToEuro.format(view_einnahmenAvg.getView()) + " Euro | " + "Durchschnittsdauer: "
+				+ formatToSeconds.format(view_parkdauerAvg.getView()) + " Sekunden");
 	}
 
 	// Author: Marius Bauerfeind
 	private String Besucheranzahl() {
-		return (s.getGesamtBesucher() + " Besucher");
+		return (view_besucherAnzahl.getView() + " Besucher");
 	}
 
 	// Author: Marius Bauerfeind
 	private String min() {
-		return ("Min Parkgebuehr: " + formatToEuro.format(s.getEinnahmenMin()) + " Euro bei "
-				+ formatToSeconds.format(s.getParkdauerMin()) + " Sekunden Parkdauer");
+		return ("Min Parkgebuehr: " + formatToEuro.format(view_einnahmenMin.getView()) + " Euro bei "
+				+ formatToSeconds.format(view_parkdauerMin.getView()) + " Sekunden Parkdauer");
 	}
 
 	// Author: Marius Bauerfeind
 	private String max() {
-		return ("max Parkgebuehr: " + formatToEuro.format(s.getEinnahmenMax()) + " Euro bei "
-				+ formatToSeconds.format(s.getParkdauerMax()) + " Sekunden Parkdauer");
+		return ("max Parkgebuehr: " + formatToEuro.format(view_einnahmenMax.getView()) + " Euro bei "
+				+ formatToSeconds.format(view_parkdauerMax.getView()) + " Sekunden Parkdauer");
 	}
 
 	// Author: Marius Bauerfeind
