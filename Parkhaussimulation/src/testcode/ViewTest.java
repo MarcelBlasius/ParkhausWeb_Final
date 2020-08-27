@@ -57,10 +57,10 @@ class ViewTest {
 		View_ParkdauerAvg view = new View_ParkdauerAvg();
 		view.subscribe(s);
 		assertEquals(null, view.getView());
-		s.addParkdauer(100);
-		assertEquals(100.0, view.getView());
-		s.addParkdauer(300);
-		assertEquals(200.0, view.getView());
+		s.addParkdauer(1000);
+		assertEquals(1.0, view.getView());
+		s.addParkdauer(3000);
+		assertEquals(2.0, view.getView());
 		
 	}
 	
