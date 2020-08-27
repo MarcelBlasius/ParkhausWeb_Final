@@ -11,7 +11,7 @@ public class View_GesamtEinnahmen extends View{
 	
 	@Override
 	public void update() {	
-		view = model.getState().get(0);
+		view = model.getState().getGesamtEinnahmen();
 	}
 
 }

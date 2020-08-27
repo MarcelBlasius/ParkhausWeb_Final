@@ -11,6 +11,6 @@ public class View_EinnahmenMax extends View{
 	
 	@Override
 	public void update() {	
-		view = model.getState().get(6);
+		view = model.getState().getMaxEinnahmen();
 	}
 }

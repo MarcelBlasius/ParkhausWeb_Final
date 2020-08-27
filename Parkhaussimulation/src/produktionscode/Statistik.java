@@ -11,9 +11,7 @@ public class Statistik extends AbstractPublisher{
 
 	private List<Double> einnahmenList;
 	private List<Double> parkdauerList;
-	private List<Double> state = Arrays.asList(new Double[8]); // [GesamtEinnahmen, AvgEinnahmen, AvGParkdauer,
-																// Besucheranzahl, MinEinnahmen, MinParkdauer,
-																// MaxEinnahmen, MaxParkdauer]
+	private IF_State state = new State();
 	private int currentFrauen;
 	private int currentAny;
 	private int currentFamilie;
@@ -49,17 +47,9 @@ public class Statistik extends AbstractPublisher{
 	
 	// Author Lars Gebhard
 	//State Methods for Views
-	public List<Double> getState() {
+	public IF_State getState() {
 		return state;
-	}
-	
-	// Author Lars Gebhard
-	private void setState(int index, double value) {
-		state.set(index, value);
-		update();
-	}
-	
-	
+	}	
 	
 	//Parkdauer Funktionen:
 	// Author Lars Gebhard
@@ -86,9 +76,10 @@ public class Statistik extends AbstractPublisher{
 		parkdauerMin = getParkdauerStream().min().orElse(0d);
 		parkdauerMax = getParkdauerStream().max().orElse(0d);
 		
-		this.setState(2, parkdauerAvg);
-		this.setState(5, parkdauerMin);
-		this.setState(7, parkdauerMax);
+		state.setAvgParkdauer(parkdauerAvg);
+		state.setMinParkdauer(parkdauerMin);
+		state.setMaxParkdauer(parkdauerMax);
+		update();
 		
 	}
 	// Author Lars Gebhard
@@ -112,9 +103,10 @@ public class Statistik extends AbstractPublisher{
 	public void addBesucher(String art) {
 		gesamtBesucher++;
 		currentBesucher += 1;
-
-		this.setState(3, gesamtBesucher);
-
+		
+		state.setBesucheranzahl(gesamtBesucher);
+		update();
+		
 		switch (art) {
 		case "Frau": {
 			currentFrauen +=  1;
@@ -247,11 +239,11 @@ public class Statistik extends AbstractPublisher{
 		einnahmenMin = getEinnahmeStream().min().orElse(0d);
 		einnahmenMax = getEinnahmeStream().max().orElse(0d);
 		
-		
-		this.setState(0, gesamtEinnahmen);
-		this.setState(1, einnahmenAvg);
-		this.setState(4, einnahmenMin);
-		this.setState(6, einnahmenMax);
+		state.setGesamtEinnahmen(gesamtEinnahmen);
+		state.setAvgEinnahmen(einnahmenAvg);
+		state.setMinEinnahmen(einnahmenMin);
+		state.setMaxEinnahmen(einnahmenMax);
+		update();
 		
 	}
 

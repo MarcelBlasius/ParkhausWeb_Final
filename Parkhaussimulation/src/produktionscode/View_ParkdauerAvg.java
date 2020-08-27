@@ -10,6 +10,6 @@ public class View_ParkdauerAvg extends View{
 	
 	@Override
 	public void update() {	
-		view = model.getState().get(2);
+		view = model.getState().getAvgParkdauer();
 	}
 }

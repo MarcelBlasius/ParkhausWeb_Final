@@ -2,14 +2,14 @@ package produktionscode;
 
 //Author: Lars Gebhard
 public class View_BesucherAnzahl extends View{
-	Double view;
+	Integer view;
 	
-	public Double getView() {
+	public Integer getView() {
 		return view;
 	}
 	
 	@Override
 	public void update() {	
-		view = model.getState().get(3);
+		view = model.getState().getBesucheranzahl();
 	}
 }

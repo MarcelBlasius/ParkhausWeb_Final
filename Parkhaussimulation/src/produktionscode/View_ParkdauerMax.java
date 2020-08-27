@@ -10,6 +10,6 @@ public class View_ParkdauerMax extends View{
 	
 	@Override
 	public void update() {	
-		view = model.getState().get(7);
+		view = model.getState().getMaxParkdauer();
 	}
 }

@@ -11,6 +11,6 @@ public class View_EinnahmenMin extends View{
 	
 	@Override
 	public void update() {	
-		view = model.getState().get(4);
+		view = model.getState().getMinEinnahmen();
 	}
 }

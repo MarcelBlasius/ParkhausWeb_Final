@@ -11,6 +11,6 @@ public class View_EinnahmenAvg extends View{
 	
 	@Override
 	public void update() {	
-		view = model.getState().get(1);
+		view = model.getState().getAvgEinnahmen();
 	}
 }

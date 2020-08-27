@@ -7,7 +7,7 @@ public interface IF_State {
 	public Double getGesamtEinnahmen();
 	public Double getAvgEinnahmen();
 	public Double getAvgParkdauer();
-	public Double getBesucheranzahl();
+	public Integer getBesucheranzahl();
 	public Double getMinEinnahmen();
 	public Double getMinParkdauer();
 	public Double getMaxEinnahmen();
@@ -16,7 +16,11 @@ public interface IF_State {
 	public void setGesamtEinnahmen(Double gesamtEinnahmen);
 	public void setAvgEinnahmen(Double avgEinnahmen);
 	public void setAvgParkdauer(Double avgParkdauer);
+<<<<<<< Updated upstream
 	public void setBesucheranzahl(int besucheranzahl);
+=======
+	public void setBesucheranzahl(Integer besucheranzahl);
+>>>>>>> Stashed changes
 	public void setMinEinnahmen(Double minEinnahmen);
 	public void setMinParkdauer(Double minParkdauer);
 	public void setMaxEinnahmen(Double maxEinnahmen);

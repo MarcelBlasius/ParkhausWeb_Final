@@ -10,6 +10,6 @@ public class View_ParkdauerMin extends View {
 	
 	@Override
 	public void update() {	
-		view = model.getState().get(5);
+		view = model.getState().getMinParkdauer();
 	}
 }
