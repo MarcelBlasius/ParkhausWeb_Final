@@ -27,6 +27,7 @@ class StatistikTest {
 		
 		view_gesamtEinnahmen.subscribe(s);
 		view_besucherAnzahl.subscribe(s);
+		view_parkdauerMin.subscribe(s);
 	}
 	
 	//Author: Marius Bauerfeind
