@@ -12,10 +12,7 @@ public class Statistik extends AbstractPublisher{
 	private List<Double> einnahmenList;
 	private List<Double> parkdauerList;
 	private IF_State state = new State();
-	private int currentFrauen;
-	private int currentAny;
-	private int currentFamilie;
-	private int currentBehinderte;
+
 	private int currentBesucher;
 
 	private int gesamtBesucher;
@@ -102,29 +99,25 @@ public class Statistik extends AbstractPublisher{
 	//Besucher Funktionen
 	public void addBesucher(String art) {
 		gesamtBesucher++;
-		currentBesucher += 1;
+		currentBesucher++;
 		
 		state.setBesucheranzahl(gesamtBesucher);
 		update();
 		
 		switch (art) {
 		case "Frau": {
-			currentFrauen +=  1;
 			gesamtFrauen++;
 			break;
 		}
 		case "any": {
-			currentAny += 1;
 			gesamtAny++;
 			break;
 		}
 		case "Familie": {
-			currentFamilie += 1;
 			gesamtFamilie++;
 			break;
 		}
 		case "Behinderte": {
-			currentBehinderte += 1;
 			gesamtBehinderte++;
 			break;
 		}
@@ -139,24 +132,7 @@ public class Statistik extends AbstractPublisher{
 	public void removeBesucher(String art) {
 		
 		if(currentBesucher != 0) {
-			currentBesucher -=  1;
-
-			switch (art) {
-			case "Frau":
-				currentFrauen -= 1;
-				break;
-			case "any":
-				currentAny -= 1;
-				break;
-			case "Familie":
-				currentFamilie -= 1;
-				break;
-			case "Behinderte":
-				currentBehinderte -= 1;
-				break;
-			default:
-				System.out.println("Fehler Statistik removeBesucher: " + art);
-			}
+			currentBesucher --;
 		}
 	}
 
