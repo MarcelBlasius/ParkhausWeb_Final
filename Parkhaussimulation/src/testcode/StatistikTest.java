@@ -13,12 +13,13 @@ import produktionscode.*;
 class StatistikTest {
 
 	Statistik s;
+	private View_GesamtEinnahmen view_gesamtEinnahmen = new View_GesamtEinnahmen();
 	
 	//Author: Teamarbeit
 	@BeforeEach
 	void setup() {
 		s =	new Statistik(new ArrayList<Double>(), new ArrayList<Double>());
-		
+		view_gesamtEinnahmen.subscribe(s);
 	}
 	
 	//Author: Marius Bauerfeind
@@ -28,7 +29,7 @@ class StatistikTest {
 		s.addEinnahme(100, "any");
 		
 		//Einnahme wird durch 100 geteilt wg. Euro
-		assertEquals(1, s.getGesamtEinnahmen());
+		assertEquals(1, view_gesamtEinnahmen.getView());
 		
 	}
 	//Author: Marius Bauerfeind
