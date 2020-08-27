@@ -29,7 +29,7 @@ class ViewTest {
 		View_GesamtEinnahmen view = new View_GesamtEinnahmen();
 		view.subscribe(s);
 		assertSame(null, view.getView());
-		s.addEinnahme(100, "any");
+		s.addEinnahme(100, "any");	
 		assertEquals(1.0, view.getView());
 		
 	}
@@ -115,10 +115,10 @@ class ViewTest {
 		View_ParkdauerMin view = new View_ParkdauerMin();
 		view.subscribe(s);
 		assertEquals(null, view.getView());
-		s.addParkdauer(100);
-		assertEquals(100.0, view.getView());
-		s.addParkdauer(50);
-		assertEquals(50.0, view.getView());
+		s.addParkdauer(1000);
+		assertEquals(1.0, view.getView());
+		s.addParkdauer(5);
+		assertEquals(0.5, view.getView());
 		
 	}
 	
@@ -130,10 +130,10 @@ class ViewTest {
 		View_ParkdauerMax view = new View_ParkdauerMax();
 		view.subscribe(s);
 		assertEquals(null, view.getView());
-		s.addParkdauer(100);
-		assertEquals(100.0, view.getView());
-		s.addParkdauer(200);
-		assertEquals(200.0, view.getView());
+		s.addParkdauer(1000);
+		assertEquals(1.0, view.getView());
+		s.addParkdauer(2000);
+		assertEquals(2.0, view.getView());
 		
 	}
 }
