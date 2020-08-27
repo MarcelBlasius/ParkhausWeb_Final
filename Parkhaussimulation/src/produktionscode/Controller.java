@@ -190,7 +190,7 @@ public class Controller {
 
 		if (c != null && !"_".equals(priceString)) {
 			float price = Float.parseFloat(priceString);
-			s.addEinnahme(price, params[8]);
+			s.addEinnahme(price, c.getArt());
 			s.addParkdauer(dauer);
 		}
 		
