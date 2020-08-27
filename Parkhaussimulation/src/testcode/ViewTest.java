@@ -117,7 +117,7 @@ class ViewTest {
 		assertEquals(null, view.getView());
 		s.addParkdauer(1000);
 		assertEquals(1.0, view.getView());
-		s.addParkdauer(5);
+		s.addParkdauer(500);
 		assertEquals(0.5, view.getView());
 		
 	}
