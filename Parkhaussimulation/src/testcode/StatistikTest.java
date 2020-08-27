@@ -15,6 +15,7 @@ class StatistikTest {
 	Statistik s;
 	private View_GesamtEinnahmen view_gesamtEinnahmen;
 	private View_BesucherAnzahl view_besucherAnzahl;
+	private View_ParkdauerMin view_parkdauerMin;
 	
 	//Author: Teamarbeit
 	@BeforeEach
@@ -22,6 +23,7 @@ class StatistikTest {
 		s =	new Statistik(new ArrayList<Double>(), new ArrayList<Double>());
 		view_gesamtEinnahmen = new View_GesamtEinnahmen();
 		view_besucherAnzahl = new View_BesucherAnzahl();
+		view_parkdauerMin = new View_ParkdauerMin();
 		
 		view_gesamtEinnahmen.subscribe(s);
 		view_besucherAnzahl.subscribe(s);
@@ -44,7 +46,7 @@ class StatistikTest {
 		s.addParkdauer(1000);
 		
 		//Parkdauer wird aufgrund von Sekunden durch 1000 geteilt
-		assertEquals(1, s.getParkdauerMin());
+		assertEquals(1, view_parkdauerMin.getView());
 		
 		
 	}

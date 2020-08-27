@@ -69,29 +69,15 @@ public class Statistik extends AbstractPublisher{
 	public void addParkdauer(double f) {
 
 		parkdauerList.add(f);
-		parkdauerAvg = getParkdauerStream().average().orElse(0d);
-		parkdauerMin = getParkdauerStream().min().orElse(0d);
-		parkdauerMax = getParkdauerStream().max().orElse(0d);
+		parkdauerAvg = getParkdauerStream().average().orElse(0d) / 1000;
+		parkdauerMin = getParkdauerStream().min().orElse(0d) / 1000;
+		parkdauerMax = getParkdauerStream().max().orElse(0d) / 1000;
 		
 		state.setAvgParkdauer(parkdauerAvg);
 		state.setMinParkdauer(parkdauerMin);
 		state.setMaxParkdauer(parkdauerMax);
 		update();
 		
-	}
-	// Author Lars Gebhard
-	public double getParkdauerAvg() {
-		return parkdauerAvg / 1000;
-		
-		
-	}
-	// Author Lars Gebhard
-	public double getParkdauerMin() {
-		return parkdauerMin / 1000;
-	}
-	// Author Lars Gebhard
-	public double getParkdauerMax() {
-		return parkdauerMax / 1000;
 	}
 	
 	//Author: Marcel Blasius
