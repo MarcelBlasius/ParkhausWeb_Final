@@ -28,7 +28,7 @@ class ViewTest {
 		
 		View_GesamtEinnahmen view = new View_GesamtEinnahmen();
 		view.subscribe(s);
-		assertSame(null, view.getView());
+		assertSame(0., view.getView());
 		s.addEinnahme(100, "any");	
 		assertEquals(1.0, view.getView());
 		
@@ -41,7 +41,7 @@ class ViewTest {
 		
 		View_EinnahmenAvg view = new View_EinnahmenAvg();
 		view.subscribe(s);
-		assertEquals(null, view.getView());
+		assertEquals(0., view.getView());
 		s.addEinnahme(100, "any");
 		assertEquals(1.0, view.getView());
 		s.addEinnahme(300, "any");
@@ -56,7 +56,7 @@ class ViewTest {
 		
 		View_ParkdauerAvg view = new View_ParkdauerAvg();
 		view.subscribe(s);
-		assertEquals(null, view.getView());
+		assertEquals(0., view.getView());
 		s.addParkdauer(1000);
 		assertEquals(1.0, view.getView());
 		s.addParkdauer(3000);
