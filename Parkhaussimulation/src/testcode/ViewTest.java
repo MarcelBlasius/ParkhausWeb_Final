@@ -84,7 +84,7 @@ class ViewTest {
 		
 		View_EinnahmenMin view = new View_EinnahmenMin();
 		view.subscribe(s);
-		assertEquals(null, view.getView());
+		assertEquals(0., view.getView());
 		s.addEinnahme(1, "any");
 		assertEquals(0.01, view.getView());
 		s.addEinnahme(0.5, "any");
@@ -99,7 +99,7 @@ class ViewTest {
 		
 		View_EinnahmenMax view = new View_EinnahmenMax();
 		view.subscribe(s);
-		assertEquals(null, view.getView());
+		assertEquals(0., view.getView());
 		s.addEinnahme(1, "any");
 		assertEquals(0.01, view.getView());
 		s.addEinnahme(2, "any");
