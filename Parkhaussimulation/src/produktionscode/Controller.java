@@ -106,6 +106,10 @@ public class Controller {
 			change_max(params);
 			break;
 		}
+		
+		case("full"):{
+			break;
+		}
 		default:
 			System.out.println("Event im Post nicht gefunden " + event);
 
