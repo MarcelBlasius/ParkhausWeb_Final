@@ -127,7 +127,7 @@ public class Controller {
 			return ("Durchschnittspreis: " + formatToEuro.format(view_einnahmenAvg.getView()) + " Euro | "
 					+ "Durchschnittsdauer: " + formatToSeconds.format(view_parkdauerAvg.getView()) + " Sekunden");
 		} else {
-			return "Es wurde noch keine Parkticket bezahlt.";
+			return "Es wurde noch kein Parkticket bezahlt.";
 		}
 	}
 
@@ -137,7 +137,7 @@ public class Controller {
 
 			return (view_besucherAnzahl.getView() + " Besucher");
 		} else {
-			return "Es wurde noch keine Parkticket bezahlt.";
+			return "Es wurde noch kein Parkticket bezahlt.";
 
 		}
 	}
@@ -149,7 +149,7 @@ public class Controller {
 			return ("Min Parkgebuehr: " + formatToEuro.format(view_einnahmenMin.getView()) + " Euro bei "
 					+ formatToSeconds.format(view_parkdauerMin.getView()) + " Sekunden Parkdauer");
 		} else {
-			return "Es wurde noch keine Parkticket bezahlt.";
+			return "Es wurde noch kein Parkticket bezahlt.";
 
 		}
 	}
@@ -161,7 +161,7 @@ public class Controller {
 			return ("max Parkgebuehr: " + formatToEuro.format(view_einnahmenMax.getView()) + " Euro bei "
 					+ formatToSeconds.format(view_parkdauerMax.getView()) + " Sekunden Parkdauer");
 		} else {
-			return "Es wurde noch keine Parkticket bezahlt.";
+			return "Es wurde noch kein Parkticket bezahlt.";
 		}
 	}
 
