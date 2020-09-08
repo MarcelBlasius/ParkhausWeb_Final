@@ -24,7 +24,7 @@ public class Controller {
 	// Author: Lars Gebhard
 	private static Controller instance = null;
 	private Controller() {
-		this.p = new Parkhaus("0", 9, new ArrayList<Car>(),
+		this.p = new Parkhaus("0", 10, new ArrayList<Car>(),
 				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
 		s = p.getStatistik();
 		
@@ -98,6 +98,11 @@ public class Controller {
 
 		case ("leave"): {
 			return leave(params);
+		}
+		
+		case("change_max"):{
+			change_max(params);
+			break;
 		}
 		default:System.out.println("Event im Post nicht gefunden "+event);
 
@@ -199,6 +204,11 @@ public class Controller {
 		} else {
 		return c.getID();
 		}
+	}
+	
+	//Author: Marcel Blasius
+	private void change_max(String[] params) {
+		p.setMaxParkplaetze(Integer.parseInt(params[2]));
 	}
 	
 	// Author: Lars Gebhard

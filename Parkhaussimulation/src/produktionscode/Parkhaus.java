@@ -80,20 +80,25 @@ public class Parkhaus implements IF_Parkhaus{
 		return s;
 	}
 	
-	
-	//TODO auf event reagieren
 	public void setMaxParkplaetze(int maxParkplaetze) {
 		
 		boolean[] tmp = new boolean[maxParkplaetze];
-		for(int i = 0; i < parkplaetze.length; i++) {
-			tmp[i] = parkplaetze[i];
+		if(tmp.length >= parkplaetze.length) {
+			for(int i = 0; i < parkplaetze.length; i++) {
+				tmp[i] = parkplaetze[i];
+			}
+		} else {
+			for(int i = 0; i < tmp.length; i++) {
+				tmp[i] = parkplaetze[i];
+			}
 		}
 		parkplaetze = tmp;
 	}
 
 	public void setParkplatzBelegt(int parkplatz, boolean belegt) {
-		
-		parkplaetze[parkplatz - 1] = belegt;
+		if(parkplatz - 1 < parkplaetze.length) {
+			parkplaetze[parkplatz - 1] = belegt;
+		}
 		
 	}
 	

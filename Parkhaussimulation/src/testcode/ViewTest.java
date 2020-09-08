@@ -71,7 +71,7 @@ class ViewTest {
 		
 		View_BesucherAnzahl view = new View_BesucherAnzahl();
 		view.subscribe(s);
-		assertEquals(null, view.getView());
+		assertEquals(0, view.getView());
 		s.addBesucher("any");
 		assertEquals(1, view.getView());
 		
