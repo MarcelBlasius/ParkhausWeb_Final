@@ -6,7 +6,7 @@ public class View_EinnahmenMin extends View{
 	Double view;
 	
 	public Double getView() {
-		return view;
+		return view == null ? 0 : view;
 	}
 	
 	@Override

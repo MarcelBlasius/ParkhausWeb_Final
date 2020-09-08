@@ -6,7 +6,7 @@ public class View_EinnahmenMax extends View{
 	Double view;
 	
 	public Double getView() {
-		return view;
+		return view == null ? 0 : view;
 	}
 	
 	@Override
