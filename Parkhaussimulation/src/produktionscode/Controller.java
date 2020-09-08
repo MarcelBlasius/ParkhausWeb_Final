@@ -1,4 +1,5 @@
 package produktionscode;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -19,16 +20,16 @@ public class Controller {
 	private View_ParkdauerAvg view_parkdauerAvg = new View_ParkdauerAvg();
 	private View_ParkdauerMax view_parkdauerMax = new View_ParkdauerMax();
 	private View_ParkdauerMin view_parkdauerMin = new View_ParkdauerMin();
-	
-	
+
 	// Author: Lars Gebhard
 	private static Controller instance = null;
+
 	private Controller() {
 		this.p = new Parkhaus("0", 10, new ArrayList<Car>(),
 				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
 		s = p.getStatistik();
-		
-		//Views als Teamarbeit
+
+		// Views als Teamarbeit
 		view_besucherAnzahl.subscribe(s);
 		view_einnahmenAvg.subscribe(s);
 		view_einnahmenMax.subscribe(s);
@@ -38,16 +39,17 @@ public class Controller {
 		view_parkdauerMax.subscribe(s);
 		view_parkdauerMin.subscribe(s);
 	}
+
 	// Author: Lars Gebhard
 	public static Controller getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = new Controller();
 		}
 		return instance;
 	}
 
 	// Author: Teamarbeit
-	public String doGet(String param){
+	public String doGet(String param) {
 
 		switch (param) {
 
@@ -89,9 +91,9 @@ public class Controller {
 
 	// Author: Teamarbeit
 	public String doPost(String event, String[] params) {
-		
+
 		switch (event) {
-		
+
 		case ("enter"): {
 			return enter(params);
 		}
@@ -99,12 +101,13 @@ public class Controller {
 		case ("leave"): {
 			return leave(params);
 		}
-		
-		case("change_max"):{
+
+		case ("change_max"): {
 			change_max(params);
 			break;
 		}
-		default:System.out.println("Event im Post nicht gefunden "+event);
+		default:
+			System.out.println("Event im Post nicht gefunden " + event);
 
 		}
 
@@ -114,30 +117,52 @@ public class Controller {
 
 	// Author: Marius Bauerfeind
 	private String Gesamteinnahmen() {
+
 		return ("Gesamteinnahmen: " + formatToEuro.format(view_gesamtEinnahmen.getView()) + " Euro");
 	}
 
 	// Author: Marius Bauerfeind
 	private String avg() {
-		return ("Durchschnittspreis: " + formatToEuro.format(view_einnahmenAvg.getView()) + " Euro | " + "Durchschnittsdauer: "
-				+ formatToSeconds.format(view_parkdauerAvg.getView()) + " Sekunden");
+		if (view_einnahmenAvg.getView() != null) {
+			return ("Durchschnittspreis: " + formatToEuro.format(view_einnahmenAvg.getView()) + " Euro | "
+					+ "Durchschnittsdauer: " + formatToSeconds.format(view_parkdauerAvg.getView()) + " Sekunden");
+		} else {
+			return "Es wurde noch keine Parkticket bezahlt.";
+		}
 	}
 
 	// Author: Marius Bauerfeind
 	private String Besucheranzahl() {
-		return (view_besucherAnzahl.getView() + " Besucher");
+		if (view_besucherAnzahl.getView() != null) {
+
+			return (view_besucherAnzahl.getView() + " Besucher");
+		} else {
+			return "Es wurde noch keine Parkticket bezahlt.";
+
+		}
 	}
 
 	// Author: Marius Bauerfeind
 	private String min() {
-		return ("Min Parkgebuehr: " + formatToEuro.format(view_einnahmenMin.getView()) + " Euro bei "
-				+ formatToSeconds.format(view_parkdauerMin.getView()) + " Sekunden Parkdauer");
+		if (view_parkdauerMin.getView() != null) {
+
+			return ("Min Parkgebuehr: " + formatToEuro.format(view_einnahmenMin.getView()) + " Euro bei "
+					+ formatToSeconds.format(view_parkdauerMin.getView()) + " Sekunden Parkdauer");
+		} else {
+			return "Es wurde noch keine Parkticket bezahlt.";
+
+		}
 	}
 
 	// Author: Marius Bauerfeind
 	private String max() {
-		return ("max Parkgebuehr: " + formatToEuro.format(view_einnahmenMax.getView()) + " Euro bei "
-				+ formatToSeconds.format(view_parkdauerMax.getView()) + " Sekunden Parkdauer");
+		if (view_parkdauerMax.getView() != null) {
+
+			return ("max Parkgebuehr: " + formatToEuro.format(view_einnahmenMax.getView()) + " Euro bei "
+					+ formatToSeconds.format(view_parkdauerMax.getView()) + " Sekunden Parkdauer");
+		} else {
+			return "Es wurde noch keine Parkticket bezahlt.";
+		}
 	}
 
 	// Author: Marius Bauerfeind
@@ -198,21 +223,21 @@ public class Controller {
 			s.addEinnahme(price, c.getArt());
 			s.addParkdauer(dauer);
 		}
-		
-		if(c == null) {
+
+		if (c == null) {
 			return "Car ist null";
 		} else {
-		return c.getID();
+			return c.getID();
 		}
 	}
-	
-	//Author: Marcel Blasius
+
+	// Author: Marcel Blasius
 	private void change_max(String[] params) {
 		p.setMaxParkplaetze(Integer.parseInt(params[2]));
 	}
-	
+
 	// Author: Lars Gebhard
-	public void reset(){
+	public void reset() {
 		instance = null;
 	}
 }
