@@ -28,7 +28,7 @@ class ViewTest {
 		
 		View_GesamtEinnahmen view = new View_GesamtEinnahmen();
 		view.subscribe(s);
-		assertSame(0., view.getView());
+		assertEquals(0., view.getView());
 		s.addEinnahme(100, "any");	
 		assertEquals(1.0, view.getView());
 		
