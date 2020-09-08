@@ -114,7 +114,7 @@ class ViewTest {
 		
 		View_ParkdauerMin view = new View_ParkdauerMin();
 		view.subscribe(s);
-		assertEquals(null, view.getView());
+		assertEquals(0., view.getView());
 		s.addParkdauer(1000);
 		assertEquals(1.0, view.getView());
 		s.addParkdauer(500);
@@ -129,7 +129,7 @@ class ViewTest {
 		
 		View_ParkdauerMax view = new View_ParkdauerMax();
 		view.subscribe(s);
-		assertEquals(null, view.getView());
+		assertEquals(0., view.getView());
 		s.addParkdauer(1000);
 		assertEquals(1.0, view.getView());
 		s.addParkdauer(2000);
