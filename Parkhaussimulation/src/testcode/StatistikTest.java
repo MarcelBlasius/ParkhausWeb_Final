@@ -56,7 +56,7 @@ class StatistikTest {
 	@Test
 	@DisplayName("Statistik ueber Besucher beim Hinzufuegen wird korrekt aktualisiert")
 	void addBesucherTest() {
-		assertEquals(null, view_besucherAnzahl.getView());
+		assertEquals(0, view_besucherAnzahl.getView());
 		s.addBesucher("any");
 		assertEquals(1, view_besucherAnzahl.getView());
 		
@@ -66,9 +66,9 @@ class StatistikTest {
 	@Test
 	@DisplayName("Statistik ueber Besucher beim Entfernen wird korrekt aktualisiert")
 	void removeBesucherTest() {
-		assertEquals(null, view_besucherAnzahl.getView());
+		assertEquals(0, view_besucherAnzahl.getView());
 		s.removeBesucher("any");
-		assertEquals(null, view_besucherAnzahl.getView());
+		assertEquals(0, view_besucherAnzahl.getView());
 		s.addBesucher("any");
 		assertEquals(1, view_besucherAnzahl.getView());
 		
