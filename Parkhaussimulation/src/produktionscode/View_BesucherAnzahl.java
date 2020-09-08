@@ -5,7 +5,7 @@ public class View_BesucherAnzahl extends View{
 	Integer view;
 	
 	public Integer getView() {
-		return view;
+		return view == null ? 0 : view;
 	}
 	
 	@Override
