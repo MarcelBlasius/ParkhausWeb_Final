@@ -239,5 +239,7 @@ public class Controller {
 	// Author: Lars Gebhard
 	public void reset() {
 		instance = null;
+		//Force reset
+		this.getInstance();
 	}
 }

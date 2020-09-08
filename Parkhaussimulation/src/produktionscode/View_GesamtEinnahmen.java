@@ -6,7 +6,7 @@ public class View_GesamtEinnahmen extends View{
 	Double view;
 	
 	public Double getView() {
-		return view == null ? 0 : view;
+		return view == null ? 0. : view;
 	}
 	
 	@Override
