@@ -1,6 +1,9 @@
+//Author: Lars Gebhard
+
+
 package produktionscode;
 
-public class SuvTyp {
+public class SuvTyp extends Fahrzeugtypen{
 	 private static SuvTyp instance = null;
 
 	    private SuvTyp() {

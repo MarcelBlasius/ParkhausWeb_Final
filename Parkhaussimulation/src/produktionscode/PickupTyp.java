@@ -1,6 +1,9 @@
+//Author: Lars Gebhard
+
+
 package produktionscode;
 
-public class PickupTyp {
+public class PickupTyp extends Fahrzeugtypen{
 	  private static PickupTyp instance = null;
 
 	    private PickupTyp() {

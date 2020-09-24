@@ -1,6 +1,9 @@
+//Author: Lars Gebhard
+
+
 package produktionscode;
 
-public class QuadTyp {
+public class QuadTyp extends Fahrzeugtypen{
 	private static QuadTyp instance = null;
 
     private QuadTyp() {

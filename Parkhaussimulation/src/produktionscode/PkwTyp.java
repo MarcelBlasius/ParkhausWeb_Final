@@ -1,3 +1,5 @@
+//Author: Lars Gebhard
+
 package produktionscode;
 
 public class PkwTyp extends Fahrzeugtypen{
