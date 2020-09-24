@@ -241,6 +241,7 @@ public class Controller {
 	}
 
 	// Author: Lars Gebhard
+	@SuppressWarnings("static-access")
 	public void reset() {
 		instance = null;
 		//Force reset
