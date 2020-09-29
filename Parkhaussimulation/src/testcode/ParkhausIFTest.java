@@ -3,6 +3,7 @@ package testcode;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -79,6 +80,35 @@ class ParkhausIFTest {
 	void maxParkplaetzeTest() {
 		assertEquals(10, p.getMaxParkplaetze());
 		
+	}
+	
+	@Test
+	@DisplayName("Undo Einfahren funktioniert")
+	void undoEinfahrenTest() {
+		Statistik statistikExpected = p.getStatistik();
+		List<Car> carListExpected = p.getCarlist();
+		boolean[] parkplaetzeExpected = p.getParkplaetze();
+		
+		p.add(new Car("id", "any"));		
+		p.undo();
+		assert(statistikExpected == p.getStatistik());
+		assert(carListExpected == p.getCarlist());
+		assert(parkplaetzeExpected == p.getParkplaetze());
+	}
+	
+	@Test
+	@DisplayName("Undo Ausfahren funktioniert")
+	void undoAusfahrenTest() {
+		Car c = new Car("id", "any");
+		p.add(c);	
+		Statistik statistikExpected = p.getStatistik();
+		List<Car> carListExpected = p.getCarlist();
+		boolean[] parkplaetzeExpected = p.getParkplaetze();
+		p.remove(c);
+		p.undo();
+		assert(statistikExpected == p.getStatistik());
+		assert(carListExpected == p.getCarlist());
+		assert(parkplaetzeExpected == p.getParkplaetze());
 	}
 	
 	
