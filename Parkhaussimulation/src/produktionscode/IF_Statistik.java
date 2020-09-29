@@ -40,6 +40,4 @@ public interface IF_Statistik {
 	public double getCurrentFamilie();
 
 	public double getCurrentBesucher();
-	
-	public void undo();
 }
