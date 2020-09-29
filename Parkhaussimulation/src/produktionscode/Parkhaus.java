@@ -1,7 +1,6 @@
 package produktionscode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -13,7 +12,7 @@ public class Parkhaus implements IF_Parkhaus{
 	private List<Car> carlist;
 	private Statistik s;
 	private boolean[] parkplaetze;
-	
+	private List<ParkhausCommand> commandList = new ArrayList<ParkhausCommand>();
 	
 	public Parkhaus(String id, int parkplaetze, List<Car>carlist, Statistik s ) {
 
@@ -26,6 +25,7 @@ public class Parkhaus implements IF_Parkhaus{
 	@Override
 	public int add(Car c) {
 		
+		commandList.add(new EinfahrenCommand(this));
 		carlist.add(c);
 		
 		for(int i = 0; i < parkplaetze.length; i++) {
@@ -44,6 +44,7 @@ public class Parkhaus implements IF_Parkhaus{
 	@Override
 	public Car remove(Car c) {
 		
+		commandList.add(new AusfahrenCommand(this));
 		carlist.remove(c);
 		s.removeBesucher(c.getArt());
 		setParkplatzBelegt(c.getParkplatz(), false);
@@ -106,7 +107,33 @@ public class Parkhaus implements IF_Parkhaus{
 		return parkplaetze.length;
 		
 	}
-
+	
+	public List<Car> getCarlist() {
+		return carlist;
+	}
+	
+	public boolean[] getParkplaetze() {
+		return parkplaetze;
+	}
+	
+	public void setStatistik(Statistik s) {
+		this.s = s;
+		
+	}
+	
+	public void setCarlist(List<Car> carlist) {
+		this.carlist = carlist;
+	}
+	
+	public void setParkplaetze(boolean[] parkplaetzeBelegtArray) {
+		this.parkplaetze = parkplaetzeBelegtArray;
+	}
+	
+	public void undo() {
+		if(!commandList.isEmpty()) {
+			commandList.remove(commandList.size()-1).undo();
+		}
+	}
 
 	
 }

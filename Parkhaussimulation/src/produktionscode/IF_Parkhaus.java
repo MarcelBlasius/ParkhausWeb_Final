@@ -1,5 +1,7 @@
 package produktionscode;
 
+import java.util.List;
+
 //Author: Teamarbeit
 
 public interface IF_Parkhaus {
@@ -19,4 +21,16 @@ public interface IF_Parkhaus {
 	public void setMaxParkplaetze(int maxParkplaetze);
 	
 	public int getMaxParkplaetze();
+	
+	public List<Car> getCarlist();
+	
+	public boolean[] getParkplaetze();
+	
+	public void setStatistik(Statistik s);
+	
+	public void setCarlist(List<Car> carlist);
+	
+	public void setParkplaetze(boolean[] parkplaetzeBelegtArray);
+	
+	void undo();
 }
