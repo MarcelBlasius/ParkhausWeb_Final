@@ -33,4 +33,9 @@ public interface IF_Parkhaus {
 	public void setParkplaetze(boolean[] parkplaetzeBelegtArray);
 	
 	void undo();
+	
+	public String getId();
+	
 }
+
+
