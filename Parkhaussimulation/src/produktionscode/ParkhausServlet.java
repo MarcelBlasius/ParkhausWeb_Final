@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import interfaces.IF_Controller;
+
 //Author: Teamarbeit
 @WebServlet("/Parkhaus")
 public class ParkhausServlet extends HttpServlet {

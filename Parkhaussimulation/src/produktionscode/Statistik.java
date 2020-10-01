@@ -5,6 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.DoubleStream;
 
+import interfaces.IF_State;
+import interfaces.IF_Statistik;
+import views.AbstractPublisher;
+import views.State;
+
 // Author Lars Gebhard
 public class Statistik extends AbstractPublisher implements IF_Statistik {
 

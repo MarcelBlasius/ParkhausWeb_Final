@@ -6,8 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import interfaces.IF_Fahrzeug;
 import produktionscode.Fahrzeug;
-import produktionscode.IF_Fahrzeug;
 
 //Author: Marius Bauerfeind
 class FahrzeugIFTest {

@@ -9,11 +9,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import interfaces.IF_Parkhaus;
+import interfaces.IF_Statistik;
 import produktionscode.Fahrzeug;
 import produktionscode.Parkhaus;
 import produktionscode.Statistik;
-import produktionscode.IF_Parkhaus;
-import produktionscode.IF_Statistik;
 
 //Author Marcel Blasius
 class ParkhausIFTest {

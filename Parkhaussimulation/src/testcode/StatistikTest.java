@@ -9,6 +9,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import produktionscode.*;
+import views.View_BesucherAnzahl;
+import views.View_GesamtEinnahmen;
+import views.View_ParkdauerMin;
 
 class StatistikTest {
 

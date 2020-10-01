@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import produktionscode.IF_State;
-import produktionscode.State;
+import interfaces.IF_State;
+import views.State;
 
 class StateTest {
 

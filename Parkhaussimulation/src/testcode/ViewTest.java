@@ -8,6 +8,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import produktionscode.*;
+import views.View_BesucherAnzahl;
+import views.View_EinnahmenAvg;
+import views.View_EinnahmenMax;
+import views.View_EinnahmenMin;
+import views.View_GesamtEinnahmen;
+import views.View_ParkdauerAvg;
+import views.View_ParkdauerMax;
+import views.View_ParkdauerMin;
 
 class ViewTest {
 

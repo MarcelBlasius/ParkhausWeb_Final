@@ -6,6 +6,17 @@ import java.util.ArrayList;
 import javax.json.Json;
 import javax.json.JsonObject;
 
+import interfaces.IF_Controller;
+import interfaces.IF_Parkhaus;
+import views.View_BesucherAnzahl;
+import views.View_EinnahmenAvg;
+import views.View_EinnahmenMax;
+import views.View_EinnahmenMin;
+import views.View_GesamtEinnahmen;
+import views.View_ParkdauerAvg;
+import views.View_ParkdauerMax;
+import views.View_ParkdauerMin;
+
 public class Controller implements IF_Controller{
 	// Author: Teamarbeit
 	DecimalFormat formatToEuro = new DecimalFormat("#0.00");

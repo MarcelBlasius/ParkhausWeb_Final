@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import commandPattern.AusfahrenCommand;
+import commandPattern.EinfahrenCommand;
+import commandPattern.ParkhausCommand;
+import interfaces.IF_Parkhaus;
+import interfaces.IF_Statistik;
+
 //Author Lars Gebhard
 public class Parkhaus implements IF_Parkhaus {
 

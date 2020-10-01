@@ -1,5 +1,7 @@
 package produktionscode;
 
+import interfaces.IF_Fahrzeug;
+
 //Author: Marius Bauerfeind
 public class Fahrzeug implements IF_Fahrzeug {
 
