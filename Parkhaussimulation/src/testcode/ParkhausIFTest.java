@@ -27,6 +27,13 @@ class ParkhausIFTest {
 
 	}
 
+	
+	@Test
+	@DisplayName("Id wird korrekt ausgegeben")
+	void test_id() {
+		assertEquals("0", p.getId());
+	}
+	
 	@Test
 	@DisplayName("Autos werden korrekt hinzugefuegt")
 	void addtest() {

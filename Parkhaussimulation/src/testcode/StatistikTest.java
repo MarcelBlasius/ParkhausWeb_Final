@@ -41,6 +41,8 @@ class StatistikTest {
 
 		// Einnahme wird durch 100 geteilt wg. Euro
 		assertEquals(1, view_gesamtEinnahmen.getView());
+		s.addEinnahme(100, "FAKE");
+		assertEquals(1, view_gesamtEinnahmen.getView());
 
 	}
 
@@ -62,6 +64,10 @@ class StatistikTest {
 		assertEquals(0, view_besucherAnzahl.getView());
 		s.addBesucher("any");
 		assertEquals(1, view_besucherAnzahl.getView());
+		
+		s.addBesucher("FAKE");
+		assertEquals(1, view_besucherAnzahl.getView());
+		
 
 	}
 
@@ -105,6 +111,21 @@ class StatistikTest {
 		s.addEinnahme(100, "Behinderte");
 		assertArrayEquals(einnahmeKategorieArray, s.getEinnahmenKategorieArray());
 
+	}
+	
+	@Test
+	@DisplayName("Fahrzeugtypen werden korrekt gespeichert")
+	void test_statistik_fahrzeugtypenAdd() {
+		s.addFahrzeugtyp("PKW");
+		s.addFahrzeugtyp("SUV");
+		s.addFahrzeugtyp("Zweirad");
+		s.addFahrzeugtyp("Trike");
+		s.addFahrzeugtyp("Quad");
+		s.addFahrzeugtyp("Pickup");
+		int[] expected = {1,1,1,1,1,1};
+		assertArrayEquals(expected, s.getGesamtFahrzeugtypenArray());
+		s.addFahrzeugtyp("FAKE");
+		assertArrayEquals(expected, s.getGesamtFahrzeugtypenArray());
 	}
 
 }

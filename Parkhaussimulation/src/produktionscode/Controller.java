@@ -36,21 +36,7 @@ public class Controller implements IF_Controller{
 	private static IF_Controller instance = null;
 
 	private Controller() {
-		this.p = new Parkhaus("0", 10, new ArrayList<Fahrzeug>(),
-				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
-
-		// Statistik Cast, da dass Interface den AbstractPublisher nicht extenden kann
-		s = (Statistik) p.getStatistik();
-
-		// Views als Teamarbeit
-		view_besucherAnzahl.subscribe(s);
-		view_einnahmenAvg.subscribe(s);
-		view_einnahmenMax.subscribe(s);
-		view_einnahmenMin.subscribe(s);
-		view_gesamtEinnahmen.subscribe(s);
-		view_parkdauerAvg.subscribe(s);
-		view_parkdauerMax.subscribe(s);
-		view_parkdauerMin.subscribe(s);
+		init();
 	}
 
 	// Author: Lars Gebhard
@@ -100,7 +86,7 @@ public class Controller implements IF_Controller{
 
 		default:
 			System.out.println("Fehler Controller createResonse " + param);
-			return null;
+			return ("Fehler Controller createResonse " + param);
 
 		}
 
@@ -129,11 +115,13 @@ public class Controller implements IF_Controller{
 		}
 		default:
 			System.out.println("Event im Post nicht gefunden " + event);
+			return("Event im Post nicht gefunden " + event);
+			
 
 		}
-
-		// Default return;
-		return null;
+		
+		//default return
+		return (event + " behandelt");
 	}
 
 	// Author: Marius Bauerfeind
@@ -144,7 +132,7 @@ public class Controller implements IF_Controller{
 
 	// Author: Marius Bauerfeind
 	private String avg() {
-		if (view_einnahmenAvg.getView() != null) {
+		if (view_einnahmenAvg.getView() != 0d) {
 			return ("Durchschnittspreis: " + formatToEuro.format(view_einnahmenAvg.getView()) + " Euro | "
 					+ "Durchschnittsdauer: " + formatToSeconds.format(view_parkdauerAvg.getView()) + " Sekunden");
 		} else {
@@ -154,7 +142,7 @@ public class Controller implements IF_Controller{
 
 	// Author: Marius Bauerfeind
 	private String Besucheranzahl() {
-		if (view_besucherAnzahl.getView() != null) {
+		if (view_besucherAnzahl.getView() != 0d) {
 
 			return (view_besucherAnzahl.getView() + " Besucher");
 		} else {
@@ -165,7 +153,7 @@ public class Controller implements IF_Controller{
 
 	// Author: Marius Bauerfeind
 	private String min() {
-		if (view_parkdauerMin.getView() != null) {
+		if (view_parkdauerMin.getView() != 0d) {
 
 			return ("Min Parkgebuehr: " + formatToEuro.format(view_einnahmenMin.getView()) + " Euro bei "
 					+ formatToSeconds.format(view_parkdauerMin.getView()) + " Sekunden Parkdauer");
@@ -177,7 +165,7 @@ public class Controller implements IF_Controller{
 
 	// Author: Marius Bauerfeind
 	private String max() {
-		if (view_parkdauerMax.getView() != null) {
+		if (view_parkdauerMax.getView() != 0d) {
 
 			return ("max Parkgebuehr: " + formatToEuro.format(view_einnahmenMax.getView()) + " Euro bei "
 					+ formatToSeconds.format(view_parkdauerMax.getView()) + " Sekunden Parkdauer");
@@ -277,8 +265,24 @@ public class Controller implements IF_Controller{
 	// Author: Lars Gebhard
 	@SuppressWarnings("static-access")
 	public void reset() {
-		instance = null;
-		// Force reset
-		this.getInstance();
+		init();
+	}
+	
+	private void init() {
+		this.p = new Parkhaus("0", 10, new ArrayList<Fahrzeug>(),
+				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
+
+		// Statistik Cast, da dass Interface den AbstractPublisher nicht extenden kann
+		s = (Statistik) p.getStatistik();
+
+		// Views als Teamarbeit
+		view_besucherAnzahl.subscribe(s);
+		view_einnahmenAvg.subscribe(s);
+		view_einnahmenMax.subscribe(s);
+		view_einnahmenMin.subscribe(s);
+		view_gesamtEinnahmen.subscribe(s);
+		view_parkdauerAvg.subscribe(s);
+		view_parkdauerMax.subscribe(s);
+		view_parkdauerMin.subscribe(s);
 	}
 }

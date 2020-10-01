@@ -12,4 +12,5 @@ public class View_ParkdauerMin extends View {
 	public void update() {
 		view = model.getState().getMinParkdauer();
 	}
+
 }

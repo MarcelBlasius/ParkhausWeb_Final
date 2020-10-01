@@ -97,33 +97,40 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 
 	
 	public void addBesucher(String art) {
-		gesamtBesucher++;
-		currentBesucher++;
-
-		state.setBesucheranzahl(gesamtBesucher);
-		update();
 
 		switch (art) {
 		case "Frau": {
 			gesamtFrauen++;
+			incrementBesucher();
 			break;
 		}
 		case "any": {
 			gesamtAny++;
+			incrementBesucher();
 			break;
 		}
 		case "Familie": {
 			gesamtFamilie++;
+			incrementBesucher();
 			break;
 		}
 		case "Behinderte": {
 			gesamtBehinderte++;
+			incrementBesucher();
 			break;
 		}
 		default:
 			System.out.println("Fehler Statistik: addBesucher: " + art);
 		}
 
+	}
+	
+	private void incrementBesucher() {
+		gesamtBesucher++;
+		currentBesucher++;
+
+		state.setBesucheranzahl(gesamtBesucher);
+		update();
 	}
 
 	// Author: Marcel Blasius
@@ -182,41 +189,44 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 	
 	public void addEinnahme(double x, String art) {
 
-		einnahmenList.add(x / 100);
-
 		switch (art) {
 		case "Frau": {
 			einnahmenFrauen += x / 100;
+			einnahmenHinzufuegen(x);
 			break;
 		}
 		case "any": {
 			einnahmenAny += x / 100;
+			einnahmenHinzufuegen(x);
 			break;
 		}
 		case "Familie": {
 			einnahmenFamilie += x / 100;
+			einnahmenHinzufuegen(x);
 			break;
 		}
 		case "Behinderte": {
 			einnahmenBehinderte += x / 100;
+			einnahmenHinzufuegen(x);
 			break;
 		}
 		default:
 			System.out.println("Statistik: Einnahme: " + art);
 		}
 
+	}
+	
+	private void einnahmenHinzufuegen(double x) {
+		einnahmenList.add(x / 100);
 		gesamtEinnahmen = getEinnahmeStream().sum();
 		einnahmenAvg = getEinnahmeStream().average().orElse(0d);
-
 		einnahmenMin = getEinnahmeStream().min().orElse(0d);
 		einnahmenMax = getEinnahmeStream().max().orElse(0d);
-
 		state.setGesamtEinnahmen(gesamtEinnahmen);
 		state.setAvgEinnahmen(einnahmenAvg);
 		state.setMinEinnahmen(einnahmenMin);
 		state.setMaxEinnahmen(einnahmenMax);
 		update();
-
 	}
 
 	// Fahrzeugtypen Funktionen
