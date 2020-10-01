@@ -70,7 +70,7 @@ class StatistikTest {
 	@DisplayName("Statistik ueber Besucher beim Entfernen wird korrekt aktualisiert")
 	void removeBesucherTest() {
 		assertEquals(0, view_besucherAnzahl.getView());
-		s.removeBesucher("any");
+		s.removeBesucher();
 		assertEquals(0, view_besucherAnzahl.getView());
 		s.addBesucher("any");
 		assertEquals(1, view_besucherAnzahl.getView());

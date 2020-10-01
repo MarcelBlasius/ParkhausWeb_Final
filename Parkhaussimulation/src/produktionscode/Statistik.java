@@ -127,7 +127,7 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 
 	// Author: Marcel Blasius
 
-	public void removeBesucher(String art) {
+	public void removeBesucher() {
 
 		if (currentBesucher != 0) {
 			currentBesucher--;

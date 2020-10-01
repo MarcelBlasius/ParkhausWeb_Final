@@ -51,7 +51,7 @@ public class Parkhaus implements IF_Parkhaus {
 
 		commandList.add(new AusfahrenCommand(this));
 		carlist.remove(c);
-		s.removeBesucher(c.getBesucherArt());
+		s.removeBesucher();
 		setParkplatzBelegt(c.getParkplatz(), false);
 		c.setParkplatz(-1);
 		return c;
