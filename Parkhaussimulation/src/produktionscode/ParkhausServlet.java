@@ -2,7 +2,6 @@ package produktionscode;
 
 import java.io.BufferedReader;
 
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -34,7 +33,7 @@ public class ParkhausServlet extends HttpServlet {
 
 		if ("cmd".equals(command)) {
 			PrintWriter out = response.getWriter();
-			String ausgabe = c.doGet( param);
+			String ausgabe = c.doGet(param);
 			out.println(ausgabe);
 			System.out.println(ausgabe);
 		}
@@ -48,11 +47,11 @@ public class ParkhausServlet extends HttpServlet {
 		String[] params = body.split(",");
 		String event = params[0];
 		Controller c = getPersistentController();
-		
+
 		String ausgabe = c.doPost(event, params);
-		
-		if(event.equals("enter")) {
-			if(Integer.parseInt(ausgabe) == 0) {
+
+		if (event.equals("enter")) {
+			if (Integer.parseInt(ausgabe) == 0) {
 				PrintWriter out = response.getWriter();
 				out.println(-1);
 			} else {
@@ -60,9 +59,9 @@ public class ParkhausServlet extends HttpServlet {
 				out.println(Integer.parseInt(ausgabe));
 				System.out.println("Post ausgabe: " + ausgabe);
 			}
-		}	
+		}
 		setPersistentController(c);
-		
+
 	}
 
 	private static String getBody(HttpServletRequest request) throws IOException {

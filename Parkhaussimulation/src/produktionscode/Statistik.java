@@ -5,9 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.DoubleStream;
 
-
 // Author Lars Gebhard
-public class Statistik extends AbstractPublisher implements IF_Statistik{
+public class Statistik extends AbstractPublisher implements IF_Statistik {
 
 	private List<Double> einnahmenList;
 	private List<Double> parkdauerList;
@@ -30,11 +29,11 @@ public class Statistik extends AbstractPublisher implements IF_Statistik{
 	private double einnahmenAvg;
 	private double einnahmenMin;
 	private double einnahmenMax;
-	
+
 	private double parkdauerAvg;
 	private double parkdauerMin;
 	private double parkdauerMax;
-	
+
 	private int gesamtPKW;
 	private int gesamtPickup;
 	private int gesamtSUV;
@@ -46,57 +45,58 @@ public class Statistik extends AbstractPublisher implements IF_Statistik{
 	public Statistik(List<Double> einnahmenList, List<Double> parkdauerList) {
 		this.einnahmenList = einnahmenList;
 		this.parkdauerList = parkdauerList;
-		
+
 	}
-	
+
 	// Author Lars Gebhard
-	//State Methods for Views
+	// State Methods for Views
 	public IF_State getState() {
 		return state;
-	}	
-	
-	//Parkdauer Funktionen:
+	}
+
+	// Parkdauer Funktionen:
 	// Author Lars Gebhard
-	//Generiere Parkdauer Stream
+	// Generiere Parkdauer Stream
 	private DoubleStream getParkdauerStream() {
 
 		double[] array = new double[parkdauerList.size()];
 		int pointer = 0;
-		
+
 		Iterator<Double> it = parkdauerList.iterator();
-		
-		while(it.hasNext()) {
-			array[pointer++] = it.next();	
+
+		while (it.hasNext()) {
+			array[pointer++] = it.next();
 		}
 		return Arrays.stream(array);
-		
+
 	}
+
 	// Author Lars Gebhard
-	//Parkdauer hinzufuegen
+	// Parkdauer hinzufuegen
 	public void addParkdauer(double f) {
 
 		parkdauerList.add(f);
 		parkdauerAvg = getParkdauerStream().average().orElse(0d) / 1000;
 		parkdauerMin = getParkdauerStream().min().orElse(0d) / 1000;
 		parkdauerMax = getParkdauerStream().max().orElse(0d) / 1000;
-		
+
 		state.setAvgParkdauer(parkdauerAvg);
 		state.setMinParkdauer(parkdauerMin);
 		state.setMaxParkdauer(parkdauerMax);
 		update();
-		
+
 	}
-	
-	//Author: Marcel Blasius
-	
-	//Besucher Funktionen
+
+	// Author: Marcel Blasius
+
+	// Besucher Funktionen
 	public void addBesucher(String art) {
 		gesamtBesucher++;
 		currentBesucher++;
-		
+
 		state.setBesucheranzahl(gesamtBesucher);
 		update();
-		
+
 		switch (art) {
 		case "Frau": {
 			gesamtFrauen++;
@@ -120,19 +120,18 @@ public class Statistik extends AbstractPublisher implements IF_Statistik{
 
 	}
 
-	//Author: Marcel Blasius
-	
+	// Author: Marcel Blasius
+
 	public void removeBesucher(String art) {
-		
-		if(currentBesucher != 0) {
-			currentBesucher --;
+
+		if (currentBesucher != 0) {
+			currentBesucher--;
 		}
 	}
 
-	
-	//Author: Marcel Blasius
-	
-	//Alle Besucher als Array ausgeben
+	// Author: Marcel Blasius
+
+	// Alle Besucher als Array ausgeben
 	public int[] getGesamtBesucherArray() {
 		int[] s = new int[4];
 		s[0] = gesamtFrauen;
@@ -141,30 +140,29 @@ public class Statistik extends AbstractPublisher implements IF_Statistik{
 		s[3] = gesamtFamilie;
 		return s;
 	}
-	
-	//Einnaehmen Funktionen
-	
-	
-	//Author Marius Bauerfeind
-	
-	//Einnahme Stream erzeugen
+
+	// Einnaehmen Funktionen
+
+	// Author Marius Bauerfeind
+
+	// Einnahme Stream erzeugen
 	private DoubleStream getEinnahmeStream() {
 
 		double[] array = new double[einnahmenList.size()];
 		int pointer = 0;
-		
+
 		Iterator<Double> it = einnahmenList.iterator();
-		
-		while(it.hasNext()) {
-			array[pointer++] = it.next();		
+
+		while (it.hasNext()) {
+			array[pointer++] = it.next();
 		}
-		
+
 		return Arrays.stream(array);
-		
+
 	}
-	
-	//Author Marius Bauerfeind
-	//Alle Einnahmen pro Kategorie als Array ausgeben
+
+	// Author Marius Bauerfeind
+	// Alle Einnahmen pro Kategorie als Array ausgeben
 	public double[] getEinnahmenKategorieArray() {
 		double[] s = new double[4];
 		s[0] = einnahmenFrauen;
@@ -173,14 +171,13 @@ public class Statistik extends AbstractPublisher implements IF_Statistik{
 		s[3] = einnahmenFamilie;
 		return s;
 	}
-	
-	//Author Marius Bauerfeind
-	//Einnahme hinzufuegen
+
+	// Author Marius Bauerfeind
+	// Einnahme hinzufuegen
 	public void addEinnahme(double x, String art) {
 
-		
 		einnahmenList.add(x / 100);
-		
+
 		switch (art) {
 		case "Frau": {
 			einnahmenFrauen += x / 100;
@@ -194,34 +191,32 @@ public class Statistik extends AbstractPublisher implements IF_Statistik{
 			einnahmenFamilie += x / 100;
 			break;
 		}
-		case "Behinderte":{
+		case "Behinderte": {
 			einnahmenBehinderte += x / 100;
 			break;
 		}
 		default:
 			System.out.println("Statistik: Einnahme: " + art);
 		}
-		
+
 		gesamtEinnahmen = getEinnahmeStream().sum();
 		einnahmenAvg = getEinnahmeStream().average().orElse(0d);
-		
+
 		einnahmenMin = getEinnahmeStream().min().orElse(0d);
 		einnahmenMax = getEinnahmeStream().max().orElse(0d);
-		
+
 		state.setGesamtEinnahmen(gesamtEinnahmen);
 		state.setAvgEinnahmen(einnahmenAvg);
 		state.setMinEinnahmen(einnahmenMin);
 		state.setMaxEinnahmen(einnahmenMax);
 		update();
-		
+
 	}
-	
-	//Fahrzeugtypen Funktionen
-	
-	
-		
+
+	// Fahrzeugtypen Funktionen
+
 	public void addFahrzeugtyp(String typ) {
-						
+
 		switch (typ) {
 		case "PKW": {
 			gesamtPKW++;
@@ -252,8 +247,8 @@ public class Statistik extends AbstractPublisher implements IF_Statistik{
 		}
 
 	}
-		
-		//Alle Fahrzeugtypen als Array ausgeben
+
+	// Alle Fahrzeugtypen als Array ausgeben
 	public int[] getGesamtFahrzeugtypenArray() {
 		int[] s = new int[6];
 		s[0] = gesamtPKW;

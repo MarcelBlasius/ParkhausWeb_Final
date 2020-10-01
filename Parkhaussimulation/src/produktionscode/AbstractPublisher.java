@@ -5,17 +5,17 @@ import java.util.List;
 
 //Author Teamarbeit
 public class AbstractPublisher {
-	
+
 	private List<View> views = new ArrayList<View>();
-	
+
 	public void addView(View view) {
 		this.views.add(view);
 	}
-	
+
 	public void update() {
-		for(View view: views) {
+		for (View view : views) {
 			view.update();
 		}
-		
+
 	}
 }

@@ -1,17 +1,16 @@
 //Author: Lars Gebhard
 
-
 package produktionscode;
 
-public class ZweiradTyp extends Fahrzeugtypen{
-	 private static ZweiradTyp instance = null;
+public class ZweiradTyp extends Fahrzeugtypen {
+	private static ZweiradTyp instance = null;
 
-	    private ZweiradTyp() {
-	    }
+	private ZweiradTyp() {
+	}
 
-	    public static ZweiradTyp getInstance() {
-	        if(instance == null) {
-	        }
-	        return instance;
-	    }
+	public static ZweiradTyp getInstance() {
+		if (instance == null) {
+		}
+		return instance;
+	}
 }

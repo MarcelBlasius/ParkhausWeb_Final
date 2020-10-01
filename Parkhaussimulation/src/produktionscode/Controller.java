@@ -27,8 +27,8 @@ public class Controller {
 	private Controller() {
 		this.p = new Parkhaus("0", 10, new ArrayList<Fahrzeug>(),
 				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
-		
-		//Statistik Cast, da dass Interface den AbstractPublisher nicht extenden kann
+
+		// Statistik Cast, da dass Interface den AbstractPublisher nicht extenden kann
 		s = (Statistik) p.getStatistik();
 
 		// Views als Teamarbeit
@@ -82,7 +82,7 @@ public class Controller {
 		case ("Anteil_Besucher"): {
 			return Anteil_Besucher();
 		}
-		
+
 		case ("Anteil_Fahrzeugtypen"): {
 			return Anteil_Fahrzeugtypen();
 		}
@@ -112,8 +112,8 @@ public class Controller {
 			change_max(params);
 			break;
 		}
-		
-		case("full"):{
+
+		case ("full"): {
 			break;
 		}
 		default:
@@ -205,24 +205,27 @@ public class Controller {
 
 		return (root.toString());
 	}
-	
+
 	private String Anteil_Fahrzeugtypen() {
 		int[] fahrzeugtypengesamt = s.getGesamtFahrzeugtypenArray();
 
-		JsonObject root = Json.createObjectBuilder().add("data", Json.createArrayBuilder().add(Json
-				.createObjectBuilder()
-				.add("values",
-						Json.createArrayBuilder().add(fahrzeugtypengesamt[0]).add(fahrzeugtypengesamt[1]).add(fahrzeugtypengesamt[2])
-								.add(fahrzeugtypengesamt[3]).add(fahrzeugtypengesamt[4]).add(fahrzeugtypengesamt[5]))
-				.add("labels", Json.createArrayBuilder().add("PKW").add("Pickup").add("SUV").add("Zweirad").add("Trike").add("Quad"))
-				.add("type", "pie"))).build();
+		JsonObject root = Json.createObjectBuilder()
+				.add("data",
+						Json.createArrayBuilder().add(Json.createObjectBuilder().add("values",
+								Json.createArrayBuilder().add(fahrzeugtypengesamt[0]).add(fahrzeugtypengesamt[1])
+										.add(fahrzeugtypengesamt[2]).add(fahrzeugtypengesamt[3])
+										.add(fahrzeugtypengesamt[4]).add(fahrzeugtypengesamt[5]))
+								.add("labels", Json.createArrayBuilder().add("PKW").add("Pickup").add("SUV")
+										.add("Zweirad").add("Trike").add("Quad"))
+								.add("type", "pie")))
+				.build();
 
 		return root.toString();
 	}
 
 	// Author: Marius Bauerfeind
 	private String enter(String[] params) {
-		return String.valueOf(p.add(new Fahrzeug(params[1], params[8],params[9])));
+		return String.valueOf(p.add(new Fahrzeug(params[1], params[8], params[9])));
 	}
 
 	// Author: Marius Bauerfeind
@@ -264,7 +267,7 @@ public class Controller {
 	@SuppressWarnings("static-access")
 	public void reset() {
 		instance = null;
-		//Force reset
+		// Force reset
 		this.getInstance();
 	}
 }

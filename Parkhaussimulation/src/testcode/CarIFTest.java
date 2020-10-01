@@ -11,16 +11,15 @@ import produktionscode.IF_Fahrzeug;
 
 //Author: Marius Bauerfeind
 class CarIFTest {
-	
+
 	IF_Fahrzeug a;
-	
+
 	@BeforeEach
 	void setup() {
-		a = new Fahrzeug("1", "any","PKW");
-		
+		a = new Fahrzeug("1", "any", "PKW");
+
 	}
-	
-	
+
 	@Test
 	@DisplayName("Erstellung eines Autos und Get Methoden funktionieren")
 	void Autotest() {

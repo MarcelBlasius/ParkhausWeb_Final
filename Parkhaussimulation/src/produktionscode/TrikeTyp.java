@@ -1,17 +1,16 @@
 //Author: Lars Gebhard
 
-
 package produktionscode;
 
-public class TrikeTyp extends Fahrzeugtypen{
+public class TrikeTyp extends Fahrzeugtypen {
 	private static TrikeTyp instance = null;
 
-    private TrikeTyp() {
-    }
+	private TrikeTyp() {
+	}
 
-    public static TrikeTyp getInstance() {
-        if(instance == null) {
-        }
-        return instance;
-    }
+	public static TrikeTyp getInstance() {
+		if (instance == null) {
+		}
+		return instance;
+	}
 }

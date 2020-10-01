@@ -2,17 +2,17 @@
 
 package produktionscode;
 
-public class PkwTyp extends Fahrzeugtypen{
+public class PkwTyp extends Fahrzeugtypen {
 
-    private static PkwTyp instance = null;
+	private static PkwTyp instance = null;
 
-    private PkwTyp() {
-    }
+	private PkwTyp() {
+	}
 
-    public static PkwTyp getInstance() {
-        if(instance == null) {
-            instance = new PkwTyp();
-        }
-        return instance;
-    }
+	public static PkwTyp getInstance() {
+		if (instance == null) {
+			instance = new PkwTyp();
+		}
+		return instance;
+	}
 }
