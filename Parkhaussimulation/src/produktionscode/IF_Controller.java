@@ -2,15 +2,11 @@ package produktionscode;
 
 //Author: Teamarbeit
 
-import javax.servlet.http.HttpServletResponse;
-
 public interface IF_Controller {
 
-	public String doGet(String cmd, String param, HttpServletResponse response);
+	public String doGet(String param);
 
-	public void doPost(String event, String[] params);
-
-	public Controller getInstance();
+	public String doPost(String event, String[] params);
 
 	public void reset();
 }

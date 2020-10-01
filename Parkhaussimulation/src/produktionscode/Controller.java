@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.json.Json;
 import javax.json.JsonObject;
 
-public class Controller {
+public class Controller implements IF_Controller{
 	// Author: Teamarbeit
 	DecimalFormat formatToEuro = new DecimalFormat("#0.00");
 	DecimalFormat formatToSeconds = new DecimalFormat("#0.000");
@@ -22,7 +22,7 @@ public class Controller {
 	private View_ParkdauerMin view_parkdauerMin = new View_ParkdauerMin();
 
 	// Author: Lars Gebhard
-	private static Controller instance = null;
+	private static IF_Controller instance = null;
 
 	private Controller() {
 		this.p = new Parkhaus("0", 10, new ArrayList<Fahrzeug>(),
@@ -43,7 +43,7 @@ public class Controller {
 	}
 
 	// Author: Lars Gebhard
-	public static Controller getInstance() {
+	public static IF_Controller getInstance() {
 		if (instance == null) {
 			instance = new Controller();
 		}
