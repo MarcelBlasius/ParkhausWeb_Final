@@ -2,12 +2,13 @@ package commandPattern;
 
 import java.util.List;
 
+import interfaces.IF_Commands;
 import interfaces.IF_Statistik;
 import produktionscode.Fahrzeug;
 import produktionscode.Parkhaus;
 
 //Author Marius Bauerfeind
-public abstract class ParkhausCommand {
+public abstract class ParkhausCommand implements IF_Commands{
 	Parkhaus p;
 
 	List<Fahrzeug> carlist;
