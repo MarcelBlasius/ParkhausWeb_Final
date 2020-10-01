@@ -13,7 +13,7 @@
 <body>
 <ccm-parkhaus-9-1-8 server_url = "http://localhost:8080/Parkhaussimulation/Parkhaus"
 					license_max = "30"
-					client_categories = '["any","Familie"]'
+					client_categories =  '["any","Familie","Frau", "Behinderte"]'
 					vehicle_types = '["PKW", "Pickup", "SUV", "Zweirad", "Trike", "Quad"]'
 					extra_buttons =  '["Gesamteinnahmen","avg","Besucheranzahl", "min", "max"]'
 					extra_charts = '["Einnahmen_pro_Kategorie", "Anteil_Besucher","Anteil_Fahrzeugtypen"]'
