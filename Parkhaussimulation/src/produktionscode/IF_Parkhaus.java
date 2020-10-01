@@ -14,7 +14,9 @@ public interface IF_Parkhaus {
 
 	int size();
 
-	Statistik getStatistik();
+	IF_Statistik getStatistik();
+	
+	public void setStatistik(IF_Statistik s);
 	
 	public void setParkplatzBelegt(int parkplatz, boolean belegt);
 	
@@ -25,8 +27,6 @@ public interface IF_Parkhaus {
 	public List<Car> getCarlist();
 	
 	public boolean[] getParkplaetze();
-	
-	public void setStatistik(Statistik s);
 	
 	public void setCarlist(List<Car> carlist);
 	

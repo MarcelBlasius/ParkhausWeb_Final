@@ -10,11 +10,11 @@ public class Parkhaus implements IF_Parkhaus{
 	
 	private String id;
 	private List<Car> carlist;
-	private Statistik s;
+	private IF_Statistik s;
 	private boolean[] parkplaetze;
 	private List<ParkhausCommand> commandList = new ArrayList<ParkhausCommand>();
 	
-	public Parkhaus(String id, int parkplaetze, List<Car>carlist, Statistik s ) {
+	public Parkhaus(String id, int parkplaetze, List<Car>carlist, IF_Statistik s ) {
 
 		this.id = id;	
 		this.carlist = carlist;
@@ -78,7 +78,7 @@ public class Parkhaus implements IF_Parkhaus{
 		return id;
 	}
 	
-	public Statistik getStatistik() {
+	public IF_Statistik getStatistik() {
 		return s;
 	}
 	
@@ -117,7 +117,7 @@ public class Parkhaus implements IF_Parkhaus{
 		return parkplaetze;
 	}
 	
-	public void setStatistik(Statistik s) {
+	public void setStatistik(IF_Statistik s) {
 		this.s = s;
 		
 	}

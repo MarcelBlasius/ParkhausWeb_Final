@@ -7,7 +7,7 @@ import java.util.stream.DoubleStream;
 
 
 // Author Lars Gebhard
-public class Statistik extends AbstractPublisher{
+public class Statistik extends AbstractPublisher implements IF_Statistik{
 
 	private List<Double> einnahmenList;
 	private List<Double> parkdauerList;

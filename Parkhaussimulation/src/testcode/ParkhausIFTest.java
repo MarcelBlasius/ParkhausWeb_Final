@@ -13,6 +13,7 @@ import produktionscode.Car;
 import produktionscode.Parkhaus;
 import produktionscode.Statistik;
 import produktionscode.IF_Parkhaus;
+import produktionscode.IF_Statistik;
 
 
 //Author Marcel Blasius
@@ -85,7 +86,7 @@ class ParkhausIFTest {
 	@Test
 	@DisplayName("Undo Einfahren funktioniert")
 	void undoEinfahrenTest() {
-		Statistik statistikExpected = p.getStatistik();
+		IF_Statistik statistikExpected = p.getStatistik();
 		List<Car> carListExpected = p.getCarlist();
 		boolean[] parkplaetzeExpected = p.getParkplaetze();
 		
@@ -101,7 +102,7 @@ class ParkhausIFTest {
 	void undoAusfahrenTest() {
 		Car c = new Car("id", "any","PKW");
 		p.add(c);	
-		Statistik statistikExpected = p.getStatistik();
+		IF_Statistik statistikExpected = p.getStatistik();
 		List<Car> carListExpected = p.getCarlist();
 		boolean[] parkplaetzeExpected = p.getParkplaetze();
 		p.remove(c);

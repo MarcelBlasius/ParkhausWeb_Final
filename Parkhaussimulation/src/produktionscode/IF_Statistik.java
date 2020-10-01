@@ -4,40 +4,22 @@ package produktionscode;
 
 public interface IF_Statistik {
 
+	public IF_State getState();
+
+	public void addParkdauer(double parkdauer);
+
 	public void addBesucher(String id);
 
 	public void removeBesucher(String id);
 
 	public int[] getGesamtBesucherArray();
 
-	public void addParkdauer(double dauer);
-
 	public double[] getEinnahmenKategorieArray();
 
-	public void addEinnahme(double einnahme, String art);
+	public void addEinnahme(double einnahme, String besuchertyp);
 
-	
-	public double getParkdauerAvg();
+	public void addFahrzeugtyp(String typ);
 
-	public double getParkdauerMin();
+	public int[] getGesamtFahrzeugtypenArray();
 
-	public double getParkdauerMax();
-	
-	public double getGesamtEinnahmen();
-
-	public double getEinnahmenAvg();
-
-	public double getEinnahmenMin();
-
-	public double getEinnahmenMax();
-
-	public double getCurrentFrauen();
-
-	public double getCurrentAny();
-
-	public double getCurrentBehinderte();
-
-	public double getCurrentFamilie();
-
-	public double getCurrentBesucher();
 }

@@ -27,7 +27,9 @@ public class Controller {
 	private Controller() {
 		this.p = new Parkhaus("0", 10, new ArrayList<Car>(),
 				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
-		s = p.getStatistik();
+		
+		//Statistik Cast, da dass Interface den AbstractPublisher nicht extenden kann
+		s = (Statistik) p.getStatistik();
 
 		// Views als Teamarbeit
 		view_besucherAnzahl.subscribe(s);

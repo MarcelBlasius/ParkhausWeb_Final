@@ -7,7 +7,7 @@ public abstract class ParkhausCommand {
 	Parkhaus p;
 	
 	List<Car> carlist;
-	Statistik s;
+	IF_Statistik s;
 	boolean[] parkplaetze;
 	
 	public ParkhausCommand(Parkhaus p) {
