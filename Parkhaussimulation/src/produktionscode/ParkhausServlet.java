@@ -26,7 +26,7 @@ public class ParkhausServlet extends HttpServlet {
 		String command = requestParamString[0];
 		String param = requestParamString[1];
 
-		Controller c = getPersistentController();
+		IF_Controller c = getPersistentController();
 
 		System.out.println("Command = " + command);
 		System.out.println("Param = " + param);
@@ -46,7 +46,7 @@ public class ParkhausServlet extends HttpServlet {
 		System.out.println("body= " + body);
 		String[] params = body.split(",");
 		String event = params[0];
-		Controller c = getPersistentController();
+		IF_Controller c = getPersistentController();
 
 		String ausgabe = c.doPost(event, params);
 
@@ -91,16 +91,16 @@ public class ParkhausServlet extends HttpServlet {
 		return getServletConfig().getServletContext();
 	}
 
-	private Controller getPersistentController() {
+	private IF_Controller getPersistentController() {
 		ServletContext application = getApplication();
-		Controller c = (Controller) application.getAttribute("Controller");
+		IF_Controller c = (IF_Controller) application.getAttribute("Controller");
 		if (c == null) {
 			c = Controller.getInstance();
 		}
 		return c;
 	}
 
-	private void setPersistentController(Controller c) {
+	private void setPersistentController(IF_Controller c) {
 		ServletContext application = getApplication();
 		application.setAttribute("Controller", c);
 

@@ -11,7 +11,7 @@ import produktionscode.*;
 //Author Marcel Blasius
 class ControllerTest {
 
-	Controller c = Controller.getInstance();
+	IF_Controller c = Controller.getInstance();
 
 	@BeforeEach
 	void setup() {
