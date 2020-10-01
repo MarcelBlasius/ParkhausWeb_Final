@@ -41,7 +41,7 @@ public class Parkhaus implements IF_Parkhaus {
 			}
 		}
 
-		s.addBesucher(c.getArt());
+		s.addBesucher(c.getBesucherArt());
 		s.addFahrzeugtyp(c.getTyp());
 		return c.getParkplatz();
 	}
@@ -51,7 +51,7 @@ public class Parkhaus implements IF_Parkhaus {
 
 		commandList.add(new AusfahrenCommand(this));
 		carlist.remove(c);
-		s.removeBesucher(c.getArt());
+		s.removeBesucher(c.getBesucherArt());
 		setParkplatzBelegt(c.getParkplatz(), false);
 		c.setParkplatz(-1);
 		return c;

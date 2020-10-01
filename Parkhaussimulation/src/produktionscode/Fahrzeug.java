@@ -6,20 +6,20 @@ import interfaces.IF_Fahrzeug;
 public class Fahrzeug implements IF_Fahrzeug {
 
 	private String id;
-	private String art;
+	private String besucherArt;
 	private String typ;
 	private int parkplatz;
 
 	public Fahrzeug(String id, String art, String typ) {
 		this.id = id;
-		this.art = art;
+		this.besucherArt = art;
 		this.typ = typ;
 
 	}
 
 	@Override
-	public String getArt() {
-		return art;
+	public String getBesucherArt() {
+		return besucherArt;
 	}
 
 	@Override

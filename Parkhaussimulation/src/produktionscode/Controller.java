@@ -258,7 +258,7 @@ public class Controller implements IF_Controller{
 
 		if (c != null && !"_".equals(priceString)) {
 			float price = Float.parseFloat(priceString);
-			s.addEinnahme(price, c.getArt());
+			s.addEinnahme(price, c.getBesucherArt());
 			s.addParkdauer(dauer);
 		}
 

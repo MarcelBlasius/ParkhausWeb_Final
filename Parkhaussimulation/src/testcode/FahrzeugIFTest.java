@@ -23,7 +23,7 @@ class FahrzeugIFTest {
 	@Test
 	@DisplayName("Erstellung eines Autos und Get Methoden funktionieren")
 	void Autotest() {
-		assertEquals("any", a.getArt());
+		assertEquals("any", a.getBesucherArt());
 		assertEquals("1", a.getID());
 		assertEquals("PKW", a.getTyp());
 	}
