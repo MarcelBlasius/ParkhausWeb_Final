@@ -2,7 +2,7 @@ package produktionscode;
 
 //Author: Teamarbeit
 
-public interface IF_Car {
+public interface IF_Fahrzeug {
 	String getArt();
 	String getID();
 	String getTyp();

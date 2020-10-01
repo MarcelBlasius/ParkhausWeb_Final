@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import produktionscode.Car;
+import produktionscode.Fahrzeug;
 import produktionscode.Parkhaus;
 import produktionscode.Statistik;
 import produktionscode.IF_Parkhaus;
@@ -23,7 +23,7 @@ class ParkhausIFTest {
 	
 	@BeforeEach
 	void setup() {
-		p = new Parkhaus("0", 10 ,new ArrayList<Car>(),
+		p = new Parkhaus("0", 10 ,new ArrayList<Fahrzeug>(),
 				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
 		
 	}
@@ -31,7 +31,7 @@ class ParkhausIFTest {
 	@Test
 	@DisplayName("Autos werden korrekt hinzugefuegt")
 	void addtest() {
-		Car a = new Car("a" , "any","PKW");
+		Fahrzeug a = new Fahrzeug("a" , "any","PKW");
 		assertEquals(1, p.add(a));
 		assertSame(a , p.cars()[0]);
 		assertEquals(2, p.add(a));
@@ -41,10 +41,10 @@ class ParkhausIFTest {
 	@Test
 	@DisplayName("Autos werden korrekt entfernt")
 	void removetest() {
-		Car a = new Car("a" , "any","PKW");
+		Fahrzeug a = new Fahrzeug("a" , "any","PKW");
 		assertEquals(1, p.add(a));
 		assertSame(a, p.remove(a));
-		assertEquals(1, p.add(new Car("1", "any","PKW")));
+		assertEquals(1, p.add(new Fahrzeug("1", "any","PKW")));
 		
 	}
 	
@@ -53,7 +53,7 @@ class ParkhausIFTest {
 	void sizeTest() {
 		
 		for(int i = 0; i < 10; i ++) {
-			p.add(new Car(String.valueOf(i) , "any","PKW"));
+			p.add(new Fahrzeug(String.valueOf(i) , "any","PKW"));
 			
 		}
 		assertSame(10, p.size());
@@ -64,9 +64,9 @@ class ParkhausIFTest {
 	@DisplayName("Array mit allen geparkten Autos wird korrekt ausgegeben")
 	void ArrayTest() {
 		
-		Car[] carArray = new Car[10];
+		Fahrzeug[] carArray = new Fahrzeug[10];
 		for(int i = 0; i < 10; i ++) {
-			Car tmp = new Car(String.valueOf(i), "any","PKW");
+			Fahrzeug tmp = new Fahrzeug(String.valueOf(i), "any","PKW");
 			p.add(tmp);
 			carArray[i] = tmp;
 		}
@@ -87,10 +87,10 @@ class ParkhausIFTest {
 	@DisplayName("Undo Einfahren funktioniert")
 	void undoEinfahrenTest() {
 		IF_Statistik statistikExpected = p.getStatistik();
-		List<Car> carListExpected = p.getCarlist();
+		List<Fahrzeug> carListExpected = p.getCarlist();
 		boolean[] parkplaetzeExpected = p.getParkplaetze();
 		
-		p.add(new Car("id", "any","PKW"));		
+		p.add(new Fahrzeug("id", "any","PKW"));		
 		p.undo();
 		assert(statistikExpected == p.getStatistik());
 		assert(carListExpected == p.getCarlist());
@@ -100,10 +100,10 @@ class ParkhausIFTest {
 	@Test
 	@DisplayName("Undo Ausfahren funktioniert")
 	void undoAusfahrenTest() {
-		Car c = new Car("id", "any","PKW");
+		Fahrzeug c = new Fahrzeug("id", "any","PKW");
 		p.add(c);	
 		IF_Statistik statistikExpected = p.getStatistik();
-		List<Car> carListExpected = p.getCarlist();
+		List<Fahrzeug> carListExpected = p.getCarlist();
 		boolean[] parkplaetzeExpected = p.getParkplaetze();
 		p.remove(c);
 		p.undo();

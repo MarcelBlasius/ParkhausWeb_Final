@@ -25,7 +25,7 @@ public class Controller {
 	private static Controller instance = null;
 
 	private Controller() {
-		this.p = new Parkhaus("0", 10, new ArrayList<Car>(),
+		this.p = new Parkhaus("0", 10, new ArrayList<Fahrzeug>(),
 				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
 		
 		//Statistik Cast, da dass Interface den AbstractPublisher nicht extenden kann
@@ -222,21 +222,21 @@ public class Controller {
 
 	// Author: Marius Bauerfeind
 	private String enter(String[] params) {
-		return String.valueOf(p.add(new Car(params[1], params[8],params[9])));
+		return String.valueOf(p.add(new Fahrzeug(params[1], params[8],params[9])));
 	}
 
 	// Author: Marius Bauerfeind
 	private String leave(String[] params) {
 		String priceString = params[4];
 		float dauer = Float.parseFloat(params[3]);
-		Car[] cars = p.cars();
-		Car tmp = null;
-		for (Car i : cars) {
+		Fahrzeug[] cars = p.cars();
+		Fahrzeug tmp = null;
+		for (Fahrzeug i : cars) {
 			if (i.getID().equals(params[1])) {
 				tmp = i;
 			}
 		}
-		Car c = null;
+		Fahrzeug c = null;
 
 		if (tmp != null) {
 			c = p.remove(tmp);
