@@ -10,6 +10,7 @@ public class ZweiradTyp extends Fahrzeugtypen {
 
 	public static ZweiradTyp getInstance() {
 		if (instance == null) {
+			instance = new ZweiradTyp();
 		}
 		return instance;
 	}

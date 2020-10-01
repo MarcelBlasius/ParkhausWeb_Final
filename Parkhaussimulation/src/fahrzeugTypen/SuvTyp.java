@@ -10,6 +10,7 @@ public class SuvTyp extends Fahrzeugtypen {
 
 	public static SuvTyp getInstance() {
 		if (instance == null) {
+			instance = new SuvTyp();
 		}
 		return instance;
 	}

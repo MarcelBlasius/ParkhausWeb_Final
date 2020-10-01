@@ -10,6 +10,7 @@ public class QuadTyp extends Fahrzeugtypen {
 
 	public static QuadTyp getInstance() {
 		if (instance == null) {
+			instance = new QuadTyp();
 		}
 		return instance;
 	}

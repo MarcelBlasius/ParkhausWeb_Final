@@ -10,6 +10,7 @@ public class TrikeTyp extends Fahrzeugtypen {
 
 	public static TrikeTyp getInstance() {
 		if (instance == null) {
+			instance = new TrikeTyp();
 		}
 		return instance;
 	}
