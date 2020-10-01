@@ -2,7 +2,6 @@ package testcode;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -54,7 +53,7 @@ class ControllerTest {
 	@Test
 	@DisplayName("Event Enter wird korrekt ausgef�hrt")
 	void test_doPost_enter() {
-		String[] params = {"","3","","","","","","","any",""};
+		String[] params = {"","3","","","","","","","any","PKW"};
 		String expected = "2";
 		assertEquals(expected, c.doPost("enter", params));
 		params[1] = "4";
