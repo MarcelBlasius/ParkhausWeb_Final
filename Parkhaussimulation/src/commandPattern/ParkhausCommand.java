@@ -19,13 +19,13 @@ public abstract class ParkhausCommand implements IF_Commands{
 		this.p = p;
 		this.carlist = p.getCarlist();
 		this.s = p.getStatistik();
-		this.parkplaetze = p.getParkplaetze();
+		this.parkplaetze = p.getParkplaetzeBelegtArray();
 
 	}
 
 	public void undo() {
 		p.setCarlist(this.carlist);
 		p.setStatistik(this.s);
-		p.setParkplaetze(this.parkplaetze);
+		p.setParkplaetzeBelegtArray(this.parkplaetze);
 	}
 }
