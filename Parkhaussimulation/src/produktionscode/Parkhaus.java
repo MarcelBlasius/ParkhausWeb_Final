@@ -72,17 +72,8 @@ public class Parkhaus implements IF_Parkhaus {
 		return carray;
 	}
 
-	@Override
-	public int size() {
-		return carlist.size();
-	}
-
 	public String getId() {
 		return id;
-	}
-
-	public IF_Statistik getStatistik() {
-		return s;
 	}
 
 	public void setMaxParkplaetze(int maxParkplaetze) {
@@ -112,25 +103,31 @@ public class Parkhaus implements IF_Parkhaus {
 
 	}
 
-	public List<Fahrzeug> getCarlist() {
-		return carlist;
-	}
-
-	public boolean[] getParkplaetze() {
+	public boolean[] getParkplaetzeBelegtArray() {
 		return parkplaetze;
 	}
-
-	public void setStatistik(IF_Statistik s) {
-		this.s = s;
-
+	
+	public void setParkplaetzeBelegtArray(boolean[] parkplaetze) {
+		this.parkplaetze = parkplaetze;
+		
 	}
 
+	public IF_Statistik getStatistik() {
+		return s;
+	}
+	
+	public List<Fahrzeug> getCarlist(){
+		return carlist;
+	}
+	
 	public void setCarlist(List<Fahrzeug> carlist) {
 		this.carlist = carlist;
 	}
-
-	public void setParkplaetze(boolean[] parkplaetzeBelegtArray) {
-		this.parkplaetze = parkplaetzeBelegtArray;
+	public void setStatistik(IF_Statistik statistik) {
+		this.s = statistik;
+	}
+	protected void setParkplaetze(boolean[] parkplaetze) {
+		this.parkplaetze = parkplaetze;
 	}
 
 	public void undo() {
@@ -138,5 +135,7 @@ public class Parkhaus implements IF_Parkhaus {
 			commandList.remove(commandList.size() - 1).undo();
 		}
 	}
+
+
 
 }

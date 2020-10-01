@@ -11,9 +11,9 @@ import produktionscode.Parkhaus;
 public abstract class ParkhausCommand implements IF_Commands{
 	Parkhaus p;
 
-	List<Fahrzeug> carlist;
-	IF_Statistik s;
-	boolean[] parkplaetze;
+	private List<Fahrzeug> carlist;
+	private IF_Statistik s;
+	private boolean[] parkplaetze;
 
 	public ParkhausCommand(Parkhaus p) {
 		this.p = p;

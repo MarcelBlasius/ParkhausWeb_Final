@@ -48,18 +48,6 @@ class ParkhausIFTest {
 	}
 
 	@Test
-	@DisplayName("Anzahl geparkter Autos wird korrekt ausgegeben")
-	void sizeTest() {
-
-		for (int i = 0; i < 10; i++) {
-			p.add(new Fahrzeug(String.valueOf(i), "any", "PKW"));
-
-		}
-		assertSame(10, p.size());
-
-	}
-
-	@Test
 	@DisplayName("Array mit allen geparkten Autos wird korrekt ausgegeben")
 	void ArrayTest() {
 
@@ -85,14 +73,12 @@ class ParkhausIFTest {
 	@DisplayName("Undo Einfahren funktioniert")
 	void undoEinfahrenTest() {
 		IF_Statistik statistikExpected = p.getStatistik();
-		List<Fahrzeug> carListExpected = p.getCarlist();
-		boolean[] parkplaetzeExpected = p.getParkplaetze();
+		boolean[] parkplaetzeExpected = p.getParkplaetzeBelegtArray();
 
 		p.add(new Fahrzeug("id", "any", "PKW"));
 		p.undo();
 		assert (statistikExpected == p.getStatistik());
-		assert (carListExpected == p.getCarlist());
-		assert (parkplaetzeExpected == p.getParkplaetze());
+		assert (parkplaetzeExpected == p.getParkplaetzeBelegtArray());
 	}
 
 	@Test
@@ -101,13 +87,11 @@ class ParkhausIFTest {
 		Fahrzeug c = new Fahrzeug("id", "any", "PKW");
 		p.add(c);
 		IF_Statistik statistikExpected = p.getStatistik();
-		List<Fahrzeug> carListExpected = p.getCarlist();
-		boolean[] parkplaetzeExpected = p.getParkplaetze();
+		boolean[] parkplaetzeExpected = p.getParkplaetzeBelegtArray();
 		p.remove(c);
 		p.undo();
 		assert (statistikExpected == p.getStatistik());
-		assert (carListExpected == p.getCarlist());
-		assert (parkplaetzeExpected == p.getParkplaetze());
+		assert (parkplaetzeExpected == p.getParkplaetzeBelegtArray());
 	}
 
 }
