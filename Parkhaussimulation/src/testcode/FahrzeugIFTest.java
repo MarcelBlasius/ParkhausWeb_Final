@@ -10,7 +10,7 @@ import produktionscode.Fahrzeug;
 import produktionscode.IF_Fahrzeug;
 
 //Author: Marius Bauerfeind
-class CarIFTest {
+class FahrzeugIFTest {
 
 	IF_Fahrzeug a;
 
