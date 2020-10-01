@@ -14,19 +14,14 @@ public class Parkhaus implements IF_Parkhaus{
 	private boolean[] parkplaetze;
 	private List<ParkhausCommand> commandList = new ArrayList<ParkhausCommand>();
 	
-<<<<<<< HEAD
-	public Parkhaus(String id, int parkplaetze, List<Car>carlist, IF_Statistik s ) {
-	
-=======
 	public Parkhaus(String id, int parkplaetze, List<Fahrzeug>carlist, IF_Statistik s ) {
 
->>>>>>> 49e169333d7d894bd6dca97cac5722febaf231dd
 		this.id = id;	
 		this.carlist = carlist;
 		this.s = s;
 		this.parkplaetze = new boolean[parkplaetze];
 	}
-
+	
 	@Override
 	public int add(Fahrzeug c) {
 		
@@ -140,7 +135,6 @@ public class Parkhaus implements IF_Parkhaus{
 			commandList.remove(commandList.size()-1).undo();
 		}
 	}
-
 
 	
 }
