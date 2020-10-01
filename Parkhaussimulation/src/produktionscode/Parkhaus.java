@@ -127,9 +127,6 @@ public class Parkhaus implements IF_Parkhaus {
 	public void setStatistik(IF_Statistik statistik) {
 		this.s = statistik;
 	}
-	protected void setParkplaetze(boolean[] parkplaetze) {
-		this.parkplaetze = parkplaetze;
-	}
 
 	public void undo() {
 		if (!commandList.isEmpty()) {
