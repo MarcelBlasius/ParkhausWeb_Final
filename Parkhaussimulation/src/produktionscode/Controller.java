@@ -80,6 +80,10 @@ public class Controller {
 		case ("Anteil_Besucher"): {
 			return Anteil_Besucher();
 		}
+		
+		case ("Anteil_Fahrzeugtypen"): {
+			return Anteil_Fahrzeugtypen();
+		}
 
 		default:
 			System.out.println("Fehler Controller createResonse " + param);
@@ -199,10 +203,24 @@ public class Controller {
 
 		return (root.toString());
 	}
+	
+	private String Anteil_Fahrzeugtypen() {
+		int[] fahrzeugtypengesamt = s.getGesamtFahrzeugtypenArray();
+
+		JsonObject root = Json.createObjectBuilder().add("data", Json.createArrayBuilder().add(Json
+				.createObjectBuilder()
+				.add("values",
+						Json.createArrayBuilder().add(fahrzeugtypengesamt[0]).add(fahrzeugtypengesamt[1]).add(fahrzeugtypengesamt[2])
+								.add(fahrzeugtypengesamt[3]).add(fahrzeugtypengesamt[4]).add(fahrzeugtypengesamt[5]))
+				.add("labels", Json.createArrayBuilder().add("PKW").add("Pickup").add("SUV").add("Zweirad").add("Trike").add("Quad"))
+				.add("type", "pie"))).build();
+
+		return root.toString();
+	}
 
 	// Author: Marius Bauerfeind
 	private String enter(String[] params) {
-		return String.valueOf(p.add(new Car(params[1], params[8])));
+		return String.valueOf(p.add(new Car(params[1], params[8],params[9])));
 	}
 
 	// Author: Marius Bauerfeind

@@ -5,6 +5,7 @@ package produktionscode;
 public interface IF_Car {
 	String getArt();
 	String getID();
+	String getTyp();
 	
 	public void setParkplatz(int parkplatz);
 	

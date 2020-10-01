@@ -34,6 +34,13 @@ public class Statistik extends AbstractPublisher{
 	private double parkdauerAvg;
 	private double parkdauerMin;
 	private double parkdauerMax;
+	
+	private int gesamtPKW;
+	private int gesamtPickup;
+	private int gesamtSUV;
+	private int gesamtZweirad;
+	private int gesamtTrike;
+	private int gesamtQuad;
 
 	// Author Lars Gebhard
 	public Statistik(List<Double> einnahmenList, List<Double> parkdauerList) {
@@ -207,6 +214,55 @@ public class Statistik extends AbstractPublisher{
 		state.setMaxEinnahmen(einnahmenMax);
 		update();
 		
+	}
+	
+	//Fahrzeugtypen Funktionen
+	
+	
+		
+	public void addFahrzeugtyp(String typ) {
+						
+		switch (typ) {
+		case "PKW": {
+			gesamtPKW++;
+			break;
+		}
+		case "Pickup": {
+			gesamtPickup++;
+			break;
+		}
+		case "SUV": {
+			gesamtSUV++;
+			break;
+		}
+		case "Zweirad": {
+			gesamtZweirad++;
+			break;
+		}
+		case "Trike": {
+			gesamtTrike++;
+			break;
+		}
+		case "Quad": {
+			gesamtQuad++;
+			break;
+		}
+		default:
+			System.out.println("Fehler Statistik: addFahrzeugtyp: " + typ);
+		}
+
+	}
+		
+		//Alle Fahrzeugtypen als Array ausgeben
+	public int[] getGesamtFahrzeugtypenArray() {
+		int[] s = new int[6];
+		s[0] = gesamtPKW;
+		s[1] = gesamtPickup;
+		s[2] = gesamtSUV;
+		s[3] = gesamtZweirad;
+		s[4] = gesamtTrike;
+		s[5] = gesamtQuad;
+		return s;
 	}
 
 }

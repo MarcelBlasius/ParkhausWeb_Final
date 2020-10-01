@@ -16,7 +16,7 @@ class CarIFTest {
 	
 	@BeforeEach
 	void setup() {
-		a = new Car("1", "any");
+		a = new Car("1", "any","PKW");
 		
 	}
 	
@@ -26,6 +26,7 @@ class CarIFTest {
 	void Autotest() {
 		assertEquals("any", a.getArt());
 		assertEquals("1", a.getID());
+		assertEquals("PKW", a.getTyp());
 	}
 
 }

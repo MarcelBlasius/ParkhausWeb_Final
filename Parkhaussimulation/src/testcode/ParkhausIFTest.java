@@ -30,7 +30,7 @@ class ParkhausIFTest {
 	@Test
 	@DisplayName("Autos werden korrekt hinzugefuegt")
 	void addtest() {
-		Car a = new Car("a" , "any");
+		Car a = new Car("a" , "any","PKW");
 		assertEquals(1, p.add(a));
 		assertSame(a , p.cars()[0]);
 		assertEquals(2, p.add(a));
@@ -40,10 +40,10 @@ class ParkhausIFTest {
 	@Test
 	@DisplayName("Autos werden korrekt entfernt")
 	void removetest() {
-		Car a = new Car("a" , "any");
+		Car a = new Car("a" , "any","PKW");
 		assertEquals(1, p.add(a));
 		assertSame(a, p.remove(a));
-		assertEquals(1, p.add(new Car("1", "any")));
+		assertEquals(1, p.add(new Car("1", "any","PKW")));
 		
 	}
 	
@@ -52,7 +52,7 @@ class ParkhausIFTest {
 	void sizeTest() {
 		
 		for(int i = 0; i < 10; i ++) {
-			p.add(new Car(String.valueOf(i) , "any"));
+			p.add(new Car(String.valueOf(i) , "any","PKW"));
 			
 		}
 		assertSame(10, p.size());
@@ -65,7 +65,7 @@ class ParkhausIFTest {
 		
 		Car[] carArray = new Car[10];
 		for(int i = 0; i < 10; i ++) {
-			Car tmp = new Car(String.valueOf(i), "any");
+			Car tmp = new Car(String.valueOf(i), "any","PKW");
 			p.add(tmp);
 			carArray[i] = tmp;
 		}
@@ -89,7 +89,7 @@ class ParkhausIFTest {
 		List<Car> carListExpected = p.getCarlist();
 		boolean[] parkplaetzeExpected = p.getParkplaetze();
 		
-		p.add(new Car("id", "any"));		
+		p.add(new Car("id", "any","PKW"));		
 		p.undo();
 		assert(statistikExpected == p.getStatistik());
 		assert(carListExpected == p.getCarlist());
@@ -99,7 +99,7 @@ class ParkhausIFTest {
 	@Test
 	@DisplayName("Undo Ausfahren funktioniert")
 	void undoAusfahrenTest() {
-		Car c = new Car("id", "any");
+		Car c = new Car("id", "any","PKW");
 		p.add(c);	
 		Statistik statistikExpected = p.getStatistik();
 		List<Car> carListExpected = p.getCarlist();

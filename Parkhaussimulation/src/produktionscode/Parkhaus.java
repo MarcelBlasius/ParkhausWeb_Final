@@ -38,6 +38,7 @@ public class Parkhaus implements IF_Parkhaus{
 		
 		
 		s.addBesucher(c.getArt());
+		s.addFahrzeugtyp(c.getTyp());
 		return c.getParkplatz();
 	}
 
