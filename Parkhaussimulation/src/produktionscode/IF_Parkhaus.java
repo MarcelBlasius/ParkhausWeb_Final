@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IF_Parkhaus {
 
-	Car[] cars();
+	Fahrzeug[] cars();
 
-	int add(Car car);
+	int add(Fahrzeug car);
 
-	Car remove(Car car);
+	Fahrzeug remove(Fahrzeug car);
 
 	int size();
 
@@ -24,11 +24,11 @@ public interface IF_Parkhaus {
 	
 	public int getMaxParkplaetze();
 	
-	public List<Car> getCarlist();
+	public List<Fahrzeug> getCarlist();
 	
 	public boolean[] getParkplaetze();
 	
-	public void setCarlist(List<Car> carlist);
+	public void setCarlist(List<Fahrzeug> carlist);
 	
 	public void setParkplaetze(boolean[] parkplaetzeBelegtArray);
 	

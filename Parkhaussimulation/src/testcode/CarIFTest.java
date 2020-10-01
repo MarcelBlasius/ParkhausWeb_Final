@@ -6,17 +6,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import produktionscode.Car;
-import produktionscode.IF_Car;
+import produktionscode.Fahrzeug;
+import produktionscode.IF_Fahrzeug;
 
 //Author: Marius Bauerfeind
 class CarIFTest {
 	
-	IF_Car a;
+	IF_Fahrzeug a;
 	
 	@BeforeEach
 	void setup() {
-		a = new Car("1", "any","PKW");
+		a = new Fahrzeug("1", "any","PKW");
 		
 	}
 	

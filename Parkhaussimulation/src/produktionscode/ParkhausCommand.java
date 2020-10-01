@@ -6,7 +6,7 @@ import java.util.List;
 public abstract class ParkhausCommand {
 	Parkhaus p;
 	
-	List<Car> carlist;
+	List<Fahrzeug> carlist;
 	IF_Statistik s;
 	boolean[] parkplaetze;
 	

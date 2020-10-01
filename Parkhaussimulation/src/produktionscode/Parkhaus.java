@@ -9,12 +9,12 @@ import java.util.List;
 public class Parkhaus implements IF_Parkhaus{
 	
 	private String id;
-	private List<Car> carlist;
+	private List<Fahrzeug> carlist;
 	private IF_Statistik s;
 	private boolean[] parkplaetze;
 	private List<ParkhausCommand> commandList = new ArrayList<ParkhausCommand>();
 	
-	public Parkhaus(String id, int parkplaetze, List<Car>carlist, IF_Statistik s ) {
+	public Parkhaus(String id, int parkplaetze, List<Fahrzeug>carlist, IF_Statistik s ) {
 
 		this.id = id;	
 		this.carlist = carlist;
@@ -23,7 +23,7 @@ public class Parkhaus implements IF_Parkhaus{
 	}
 	
 	@Override
-	public int add(Car c) {
+	public int add(Fahrzeug c) {
 		
 		commandList.add(new EinfahrenCommand(this));
 		carlist.add(c);
@@ -43,7 +43,7 @@ public class Parkhaus implements IF_Parkhaus{
 	}
 
 	@Override
-	public Car remove(Car c) {
+	public Fahrzeug remove(Fahrzeug c) {
 		
 		commandList.add(new AusfahrenCommand(this));
 		carlist.remove(c);
@@ -55,11 +55,11 @@ public class Parkhaus implements IF_Parkhaus{
 	}
 
 	@Override
-	public Car[] cars() {
-		Car[] carray = new Car[carlist.size()];
+	public Fahrzeug[] cars() {
+		Fahrzeug[] carray = new Fahrzeug[carlist.size()];
 		int pointer = 0;
 		
-		Iterator<Car> it = carlist.iterator();
+		Iterator<Fahrzeug> it = carlist.iterator();
 		
 		while(it.hasNext()) {
 			carray[pointer++] = it.next();		
@@ -109,7 +109,7 @@ public class Parkhaus implements IF_Parkhaus{
 		
 	}
 	
-	public List<Car> getCarlist() {
+	public List<Fahrzeug> getCarlist() {
 		return carlist;
 	}
 	
@@ -122,7 +122,7 @@ public class Parkhaus implements IF_Parkhaus{
 		
 	}
 	
-	public void setCarlist(List<Car> carlist) {
+	public void setCarlist(List<Fahrzeug> carlist) {
 		this.carlist = carlist;
 	}
 	

@@ -1,14 +1,14 @@
 package produktionscode;
 
 //Author: Marius Bauerfeind
-public class Car implements IF_Car{
+public class Fahrzeug implements IF_Fahrzeug{
 	
 	private String id;
 	private String art;
 	private String typ;
 	private int parkplatz;
 	
-	public Car(String id, String art,String typ) {
+	public Fahrzeug(String id, String art,String typ) {
 		this.id = id;
 		this.art = art;
 		this.typ = typ;
