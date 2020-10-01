@@ -3,8 +3,10 @@ package views;
 import java.util.ArrayList;
 import java.util.List;
 
+import interfaces.IF_AbstractPublisher;
+
 //Author Teamarbeit
-public class AbstractPublisher {
+public class AbstractPublisher implements IF_AbstractPublisher{
 
 	private List<View> views = new ArrayList<View>();
 
