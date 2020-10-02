@@ -25,12 +25,42 @@ class StateTest {
 		s.setAvgEinnahmen(10.5);
 		assertEquals(10.5, s.getAvgEinnahmen());
 	}
+	
+	@Test
+	@DisplayName("Einnahmenminimum wird korrekt gespeichert")
+	void minEinnahmenTest() {
+		s.setMinEinnahmen(10.5);
+		;
+		assertEquals(10.5, s.getMinEinnahmen());
+	}
+	
+	@Test
+	@DisplayName("Einnahmenmaximum wird korrekt gespeichert")
+	void maxEinnahmenTest() {
+		s.setMaxEinnahmen(10.5);
+		assertEquals(10.5, s.getMaxEinnahmen());
+	}
 
 	@Test
 	@DisplayName("Parkdauerdurchschnitt wird korrekt gespeichert")
 	void avgParkdauerTest() {
 		s.setAvgParkdauer(5.5);
 		assertEquals(5.5, s.getAvgParkdauer());
+	}
+	
+	@Test
+	@DisplayName("Parkdauerminimum wird korrekt gespeichert")
+	void minParkdauerTest() {
+		s.setMinParkdauer(5.5);
+		;
+		assertEquals(5.5, s.getMinParkdauer());
+	}
+	
+	@Test
+	@DisplayName("Parkdauermaximum wird korrekt gespeichert")
+	void maxParkdauerTest() {
+		s.setMaxParkdauer(5.5);
+		assertEquals(5.5, s.getMaxParkdauer());
 	}
 
 	@Test
@@ -40,35 +70,4 @@ class StateTest {
 		;
 		assertEquals(7, s.getBesucheranzahl());
 	}
-
-	@Test
-	@DisplayName("Einnahmenminimum wird korrekt gespeichert")
-	void minEinnahmenTest() {
-		s.setMinEinnahmen(10.5);
-		;
-		assertEquals(10.5, s.getMinEinnahmen());
-	}
-
-	@Test
-	@DisplayName("Parkdauerminimum wird korrekt gespeichert")
-	void minParkdauerTest() {
-		s.setMinParkdauer(5.5);
-		;
-		assertEquals(5.5, s.getMinParkdauer());
-	}
-
-	@Test
-	@DisplayName("Einnahmenmaximum wird korrekt gespeichert")
-	void maxEinnahmenTest() {
-		s.setMaxEinnahmen(10.5);
-		assertEquals(10.5, s.getMaxEinnahmen());
-	}
-
-	@Test
-	@DisplayName("Parkdauermaximum wird korrekt gespeichert")
-	void maxParkdauerTest() {
-		s.setMaxParkdauer(5.5);
-		assertEquals(5.5, s.getMaxParkdauer());
-	}
-
 }

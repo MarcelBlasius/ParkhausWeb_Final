@@ -35,7 +35,7 @@ class ParkhausIFTest {
 	}
 	
 	@Test
-	@DisplayName("Autos werden korrekt hinzugefuegt")
+	@DisplayName("Fahrzeuge werden korrekt hinzugefuegt")
 	void addtest() {
 		Fahrzeug a = new Fahrzeug("a", "any", "PKW");
 		assertEquals(1, p.add(a));
@@ -45,7 +45,7 @@ class ParkhausIFTest {
 	}
 
 	@Test
-	@DisplayName("Autos werden korrekt entfernt")
+	@DisplayName("Fahrzeuge werden korrekt entfernt")
 	void removetest() {
 		Fahrzeug a = new Fahrzeug("a", "any", "PKW");
 		assertEquals(1, p.add(a));
@@ -55,7 +55,7 @@ class ParkhausIFTest {
 	}
 
 	@Test
-	@DisplayName("Array mit allen geparkten Autos wird korrekt ausgegeben")
+	@DisplayName("Array mit allen geparkten Fahrzeugen wird korrekt ausgegeben")
 	void ArrayTest() {
 
 		Fahrzeug[] carArray = new Fahrzeug[10];

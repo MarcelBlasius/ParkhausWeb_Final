@@ -30,7 +30,7 @@ class ViewTest {
 
 	// Author: Teamarbeit
 	@Test
-	@DisplayName("Gesamt Einnahmen werden upgedatet")
+	@DisplayName("Gesamteinnahmen werden upgedatet")
 	void GesamtEinnahmenViewTest() {
 
 		View_GesamtEinnahmen view = new View_GesamtEinnahmen();
@@ -43,7 +43,7 @@ class ViewTest {
 
 	// Author: Teamarbeit
 	@Test
-	@DisplayName("Einnahmen AVG wird upgedatet")
+	@DisplayName("Einnahmen-AVG wird upgedatet")
 	void EinnahmenAvgViewTest() {
 
 		View_EinnahmenAvg view = new View_EinnahmenAvg();
@@ -58,7 +58,7 @@ class ViewTest {
 
 	// Author: Marcel Blasius
 	@Test
-	@DisplayName("Parkdauer AVG wird upgedatet")
+	@DisplayName("Parkdauer-AVG wird upgedatet")
 	void ParkdauerAvgViewTest() {
 
 		View_ParkdauerAvg view = new View_ParkdauerAvg();
@@ -86,7 +86,7 @@ class ViewTest {
 
 	// Author: Lars Gebhard
 	@Test
-	@DisplayName("Einnahmen MIN wird upgedatet")
+	@DisplayName("Einnahmen-MIN wird upgedatet")
 	void EinnahmenMinViewTest() {
 
 		View_EinnahmenMin view = new View_EinnahmenMin();
@@ -101,7 +101,7 @@ class ViewTest {
 
 	// Author: Lars Gebhard
 	@Test
-	@DisplayName("Einnahmen Max wird upgedatet")
+	@DisplayName("Einnahmen-Max wird upgedatet")
 	void EinnahmenMaxViewTest() {
 
 		View_EinnahmenMax view = new View_EinnahmenMax();
@@ -116,7 +116,7 @@ class ViewTest {
 
 	// Author: Marius Bauerfeind
 	@Test
-	@DisplayName("Parkdauer Min wird upgedatet")
+	@DisplayName("Parkdauer-Min wird upgedatet")
 	void ParkdauerMinViewTest() {
 
 		View_ParkdauerMin view = new View_ParkdauerMin();
@@ -131,7 +131,7 @@ class ViewTest {
 
 	// Author: Marius Bauerfeind
 	@Test
-	@DisplayName("Parkdauer Max wird upgedatet")
+	@DisplayName("Parkdauer-Max wird upgedatet")
 	void ParkdauerMaxViewTest() {
 
 		View_ParkdauerMax view = new View_ParkdauerMax();

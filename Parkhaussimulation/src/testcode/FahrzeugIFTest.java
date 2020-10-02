@@ -21,7 +21,7 @@ class FahrzeugIFTest {
 	}
 
 	@Test
-	@DisplayName("Erstellung eines Autos und Get Methoden funktionieren")
+	@DisplayName("Erstellung eines Fahrzeuges und Get-Methoden funktionieren")
 	void Autotest() {
 		assertEquals("any", a.getBesucherArt());
 		assertEquals("1", a.getID());

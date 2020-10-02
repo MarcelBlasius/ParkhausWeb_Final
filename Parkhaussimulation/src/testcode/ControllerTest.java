@@ -49,21 +49,20 @@ class ControllerTest {
 	}
 
 	@Test
-	@DisplayName("Abfangen nicht vorhandener Post befehle")
+	@DisplayName("Abfangen nicht vorhandener Post-Befehle")
 	void test_doPost_falscherCmd() {
 		String expected = "Event im Post nicht gefunden cmd";
 		assertEquals(expected, c.doPost("cmd", null));
 	}
 	
 	@Test
-	@DisplayName("Abfangen nicht vorhandener Get befehle")
+	@DisplayName("Abfangen nicht vorhandener Get-Befehle")
 	void test_doGet_falscherCmd() {
-		String[] params = { "", "3", "", "", "", "", "", "", "any", "PKW" };
 		String expected = "Fehler Controller createResonse cmd";
 		assertEquals(expected, c.doGet("cmd"));
 	}
 	@Test
-	@DisplayName("Event Enter wird korrekt ausgef�hrt")
+	@DisplayName("Event Enter wird korrekt ausgefuehrt")
 	void test_doPost_enter() {
 		String[] params = { "", "3", "", "", "", "", "", "", "any", "PKW" };
 		String expected = "2";
@@ -74,7 +73,7 @@ class ControllerTest {
 	}
 
 	@Test
-	@DisplayName("Event Leave wird korrekt ausgef�hrt")
+	@DisplayName("Event Leave wird korrekt ausgefuehrt")
 	void test_doPost_leave() {
 		String art = "any";
 		String id = "3";
@@ -90,14 +89,14 @@ class ControllerTest {
 	}
 
 	@Test
-	@DisplayName("Gesamteinnahmen werden korrekt zur�ckgegeben")
+	@DisplayName("Gesamteinnahmen werden korrekt zurueckgegeben")
 	void test_doGet_Gesamteinnahmen() {
 		String expected = "Gesamteinnahmen: 0,90 Euro";
 		assertEquals(expected, c.doGet("Gesamteinnahmen"));
 	}
 
 	@Test
-	@DisplayName("Der Durchschnittspreis und die Durchschnittsdauer werden korrekt zur�ckgegeben")
+	@DisplayName("Der Durchschnittspreis und die Durchschnittsdauer werden korrekt zurueckgegeben")
 	void test_doGet_avg() {
 		String expected = "Durchschnittspreis: 0,45 Euro | Durchschnittsdauer: 0,030 Sekunden";
 		assertEquals(expected, c.doGet("avg"));
@@ -107,7 +106,7 @@ class ControllerTest {
 	}
 
 	@Test
-	@DisplayName("Die Besucheranzahl wird korrekt zur�ckgegeben")
+	@DisplayName("Die Besucheranzahl wird korrekt zurueckgegeben")
 	void test_doGet_Besucheranzahl() {
 		String expected = "3 Besucher";
 		assertEquals(expected, c.doGet("Besucheranzahl"));
@@ -117,7 +116,7 @@ class ControllerTest {
 	}
 
 	@Test
-	@DisplayName("Die minimale Parkgebuehr und Parkdauer wird korrekt zur�ckgegeben")
+	@DisplayName("Die minimale Parkgebuehr und Parkdauer wird korrekt zurueckgegeben")
 	void test_doGet_min() {
 		String expected = "Min Parkgebuehr: 0,30 Euro bei 0,015 Sekunden Parkdauer";
 		assertEquals(expected, c.doGet("min"));
@@ -127,7 +126,7 @@ class ControllerTest {
 	}
 
 	@Test
-	@DisplayName("Die maximale Parkgebuehr und Parkdauer wird korrekt zur�ckgegeben")
+	@DisplayName("Die maximale Parkgebuehr und Parkdauer wird korrekt zurueckgegeben")
 	void test_doGet_max() {
 		String expected = "max Parkgebuehr: 0,60 Euro bei 0,045 Sekunden Parkdauer";
 		assertEquals(expected, c.doGet("max"));
@@ -137,7 +136,7 @@ class ControllerTest {
 	}
 
 	@Test
-	@DisplayName("Der JSON String fuer die Grafik der Einnahmen pro Kategorie wird korrekt zur�ckgegeben")
+	@DisplayName("Der JSON String fuer die Grafik der Einnahmen pro Kategorie wird korrekt zurueckgegeben")
 	void test_doGet_Einnahmen_pro_Kategorie() {
 		String expected = "{\"data\":[{\"x\":[\"Frauen\",\"Any\",\"Behinderte\",\"Familien\"],\"y\":[0.0,0.6,0.0,0.3],\"type\":\"bar\",\"name\":\"Einnahmen pro Kategorie\"}]}";
 		assertEquals(expected, c.doGet("Einnahmen_pro_Kategorie"));
@@ -151,7 +150,7 @@ class ControllerTest {
 	}
 
 	@Test
-	@DisplayName("Der JSON String fuer die Grafik der Anteil der Fahrzeugtypen wird korrekt zur�ckgegeben")
+	@DisplayName("Der JSON String fuer die Grafik der Anteil der Fahrzeugtypen wird korrekt zurueckgegeben")
 	void test_doGet_Anteil_Fahrzeugtypen() {
 		String expected = "{\"data\":[{\"values\":[1,1,0,0,0,1],\"labels\":[\"PKW\",\"Pickup\",\"SUV\",\"Zweirad\",\"Trike\",\"Quad\"],\"type\":\"pie\"}]}";
 		assertEquals(expected, c.doGet("Anteil_Fahrzeugtypen"));
@@ -167,7 +166,7 @@ class ControllerTest {
 	}
 	
 	@Test
-	@DisplayName("Reset Funktioniert")
+	@DisplayName("Reset funktioniert")
 	void test_reset() {
 		c.reset();
 		assert(c == Controller.getInstance());
