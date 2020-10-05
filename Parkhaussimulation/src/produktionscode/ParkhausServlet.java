@@ -37,7 +37,7 @@ public class ParkhausServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			String ausgabe = c.doGet(param);
 			out.println(ausgabe);
-			System.out.println(ausgabe);
+			System.out.println("Get ausgabe: " + ausgabe);
 		}
 
 	}
