@@ -161,9 +161,9 @@ class ControllerTest {
 	@DisplayName("Maximale Parkplatzanzahl anpassen funktioniert")
 	void test_change_max() {
 		String[] params = {"","","15"};
-		assertEquals("change_max behandelt", c.doPost("change_max", params));
+		assertEquals(null, c.doPost("change_max", params));
 		params[2] = "1";
-		assertEquals("change_max behandelt", c.doPost("change_max", params));
+		assertEquals(null, c.doPost("change_max", params));
 	}
 	
 	@Test

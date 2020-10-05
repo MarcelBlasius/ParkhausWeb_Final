@@ -13,10 +13,10 @@
 <body>
 <ccm-parkhaus-9-1-8 server_url = "http://localhost:8080/Parkhaussimulation/Parkhaus"
 					license_max = "30"
-					client_categories =  '["any","Familie","Frau","Behinderte"]'
+					client_categories = '["any","Familie"]'
 					vehicle_types = '["PKW", "Pickup", "SUV", "Zweirad", "Trike", "Quad"]'
-					extra_buttons =  '["Gesamteinnahmen","avg","Besucheranzahl", "min", "max"]'
-					extra_charts = '["Einnahmen_pro_Kategorie", "Anteil_Besucher","Anteil_Fahrzeugtypen"]'
+					extra_buttons =  '["UNDO", "Gesamteinnahmen","avg","Besucheranzahl", "min", "max"]'
+					extra_charts = '["Einnahmen_pro_Kategorie", "Anteil_Besucher"]'
 					price_factor = '{"PKW": 1, "Pickup": 1.5, "SUV": 2,"Zweirad": 0.5, "Trike": 0.75, "Quad": 0.75}'
 ></ccm-parkhaus-9-1-8>
 </body>

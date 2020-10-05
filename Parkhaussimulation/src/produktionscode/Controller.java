@@ -83,6 +83,14 @@ public class Controller implements IF_Controller{
 		case ("Anteil_Fahrzeugtypen"): {
 			return Anteil_Fahrzeugtypen();
 		}
+		
+		case ("config&name"):{
+			return null;
+		}
+		
+		case ("cars&name"):{
+			return null;
+		}
 
 		default:
 			System.out.println("Fehler Controller createResonse " + param);
@@ -107,11 +115,19 @@ public class Controller implements IF_Controller{
 
 		case ("change_max"): {
 			change_max(params);
-			break;
+			return null;
 		}
 
 		case ("full"): {
-			break;
+			return null;
+		}
+		
+		case ("change_open_from"):{
+			return null;
+		}
+		
+		case ("change_open_to"):{
+			return null;
 		}
 		default:
 			System.out.println("Event im Post nicht gefunden " + event);
@@ -119,9 +135,7 @@ public class Controller implements IF_Controller{
 			
 
 		}
-		
-		//default return
-		return (event + " behandelt");
+	
 	}
 
 	// Author: Marius Bauerfeind
