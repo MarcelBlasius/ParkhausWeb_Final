@@ -5,8 +5,8 @@ import java.util.List;
 
 import interfaces.IF_AbstractPublisher;
 
-//Author Teamarbeit
-public class AbstractPublisher implements IF_AbstractPublisher{
+// Author: Team
+public class AbstractPublisher implements IF_AbstractPublisher {
 
 	private List<View> views = new ArrayList<View>();
 

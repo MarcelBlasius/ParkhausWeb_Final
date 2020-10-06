@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import interfaces.IF_Fahrzeug;
 import produktionscode.Fahrzeug;
 
-//Author: Marius Bauerfeind
+// Author: Jan Bauerfeind
 class FahrzeugIFTest {
 
 	IF_Fahrzeug a;

@@ -1,17 +1,17 @@
 package interfaces;
 
-// Author Teamarbeit
+// Author: Team
 public interface IF_Fahrzeugtypen {
 
-	//gibt die Gebuehr zurueck
+	// gibt die Gebuehr zurueck
 	public double getGebuehr();
-	
-	//setzt die Gebuehr
+
+	// setzt die Gebuehr
 	public void setGebuehr(double gebuehr);
 
-	//gibt die Quadratmeter anzahl zurueck
+	// gibt die Quadratmeteranzahl zurueck
 	public double getQuadratmeter();
 
-	//setzt die Quadratmeteranzahl
+	// setzt die Quadratmeteranzahl
 	public void setQuadratmeter(double quadratmeter);
 }

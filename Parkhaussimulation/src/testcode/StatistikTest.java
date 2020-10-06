@@ -20,7 +20,7 @@ class StatistikTest {
 	private View_BesucherAnzahl view_besucherAnzahl;
 	private View_ParkdauerMin view_parkdauerMin;
 
-	// Author: Teamarbeit
+	// Author: Team
 	@BeforeEach
 	void setup() {
 		s = new Statistik(new ArrayList<Double>(), new ArrayList<Double>());
@@ -33,7 +33,7 @@ class StatistikTest {
 		view_parkdauerMin.subscribe(s);
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	@Test
 	@DisplayName("Einnahme wird korrekt gespeichert")
 	void addEinnahmeTest() {
@@ -46,7 +46,7 @@ class StatistikTest {
 
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	@Test
 	@DisplayName("Parkdauer wird korrekt gespeichert")
 	void addParkdauerest() {
@@ -64,10 +64,9 @@ class StatistikTest {
 		assertEquals(0, view_besucherAnzahl.getView());
 		s.addBesucher("any");
 		assertEquals(1, view_besucherAnzahl.getView());
-		
+
 		s.addBesucher("FAKE");
 		assertEquals(1, view_besucherAnzahl.getView());
-		
 
 	}
 
@@ -112,7 +111,8 @@ class StatistikTest {
 		assertArrayEquals(einnahmeKategorieArray, s.getEinnahmenKategorieArray());
 
 	}
-	
+
+	// Author: Marcel Blasius
 	@Test
 	@DisplayName("Fahrzeugtypen werden korrekt gespeichert")
 	void test_statistik_fahrzeugtypenAdd() {
@@ -122,10 +122,9 @@ class StatistikTest {
 		s.addFahrzeugtyp("Trike");
 		s.addFahrzeugtyp("Quad");
 		s.addFahrzeugtyp("Pickup");
-		int[] expected = {1,1,1,1,1,1};
+		int[] expected = { 1, 1, 1, 1, 1, 1 };
 		assertArrayEquals(expected, s.getGesamtFahrzeugtypenArray());
 		s.addFahrzeugtyp("FAKE");
 		assertArrayEquals(expected, s.getGesamtFahrzeugtypenArray());
 	}
-
 }

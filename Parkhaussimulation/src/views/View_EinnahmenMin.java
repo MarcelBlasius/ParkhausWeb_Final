@@ -1,7 +1,6 @@
 package views;
 
-//Author: Marcel Blasius
-
+// Author: Marcel Blasius
 public class View_EinnahmenMin extends View {
 	Double view;
 

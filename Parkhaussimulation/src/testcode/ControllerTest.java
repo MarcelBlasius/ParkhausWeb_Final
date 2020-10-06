@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import interfaces.IF_Controller;
 import produktionscode.*;
 
-//Author Marcel Blasius
+// Author: Marcel Blasius
 class ControllerTest {
 
 	IF_Controller c = Controller.getInstance();

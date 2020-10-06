@@ -46,7 +46,7 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 	private int gesamtTrike;
 	private int gesamtQuad;
 
-	// Author Lars Gebhard
+	// Author: Lars Gebhard
 	public Statistik(List<Double> einnahmenList, List<Double> parkdauerList) {
 		this.einnahmenList = einnahmenList;
 		this.parkdauerList = parkdauerList;
@@ -54,15 +54,13 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 	}
 
 	// Author: Lars Gebhard
-	
 	public IF_State getState() {
 		return state;
 	}
 
-	// Parkdauer Funktionen:
-	
+	// Parkdauer-Funktionen:
+
 	// Author: Lars Gebhard
-	
 	private DoubleStream getParkdauerStream() {
 
 		double[] array = new double[parkdauerList.size()];
@@ -78,7 +76,6 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 	}
 
 	// Author: Lars Gebhard
-	
 	public void addParkdauer(double f) {
 
 		parkdauerList.add(f);
@@ -94,8 +91,6 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 	}
 
 	// Author: Marcel Blasius
-
-	
 	public void addBesucher(String art) {
 
 		switch (art) {
@@ -124,7 +119,8 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 		}
 
 	}
-	
+
+	// Author: Marcel Blasius
 	private void incrementBesucher() {
 		gesamtBesucher++;
 		currentBesucher++;
@@ -134,7 +130,6 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 	}
 
 	// Author: Marcel Blasius
-
 	public void removeBesucher() {
 
 		if (currentBesucher != 0) {
@@ -143,8 +138,6 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 	}
 
 	// Author: Marcel Blasius
-
-	
 	public int[] getGesamtBesucherArray() {
 		int[] s = new int[4];
 		s[0] = gesamtFrauen;
@@ -154,11 +147,9 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 		return s;
 	}
 
-	// Einnaehmen Funktionen
+	// Einnahme-Funktionen
 
-	// Author Marius Bauerfeind
-
-	
+	// Author: Jan Bauerfeind
 	private DoubleStream getEinnahmeStream() {
 
 		double[] array = new double[einnahmenList.size()];
@@ -174,8 +165,8 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 
 	}
 
-	// Author Marius Bauerfeind
-	
+	// Author: Jan Bauerfeind
+
 	public double[] getEinnahmenKategorieArray() {
 		double[] s = new double[4];
 		s[0] = einnahmenFrauen;
@@ -185,8 +176,8 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 		return s;
 	}
 
-	// Author Marius Bauerfeind
-	
+	// Author: Jan Bauerfeind
+
 	public void addEinnahme(double x, String art) {
 
 		switch (art) {
@@ -215,7 +206,8 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 		}
 
 	}
-	
+
+	// Author: Marcel Blasius
 	private void einnahmenHinzufuegen(double x) {
 		einnahmenList.add(x / 100);
 		gesamtEinnahmen = getEinnahmeStream().sum();
@@ -229,9 +221,9 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 		update();
 	}
 
-	// Fahrzeugtypen Funktionen
+	// Fahrzeugtypen-Funktionen
 
-	// Author Lars Gebhard
+	// Author: Lars Gebhard
 	public void addFahrzeugtyp(String typ) {
 
 		switch (typ) {
@@ -265,7 +257,7 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 
 	}
 
-	// Author Lars Gebhard
+	// Author: Lars Gebhard
 	public int[] getGesamtFahrzeugtypenArray() {
 		int[] s = new int[6];
 		s[0] = gesamtPKW;
@@ -276,5 +268,4 @@ public class Statistik extends AbstractPublisher implements IF_Statistik {
 		s[5] = gesamtQuad;
 		return s;
 	}
-
 }

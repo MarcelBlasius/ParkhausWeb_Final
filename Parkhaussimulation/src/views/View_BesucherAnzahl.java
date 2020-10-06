@@ -1,6 +1,6 @@
 package views;
 
-//Author: Lars Gebhard
+// Author: Lars Gebhard
 public class View_BesucherAnzahl extends View {
 	Integer view;
 

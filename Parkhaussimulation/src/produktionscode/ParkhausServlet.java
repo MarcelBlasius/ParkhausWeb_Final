@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import interfaces.IF_Controller;
 
-//Author: Teamarbeit
+// Author: Team
 @WebServlet("/Parkhaus")
 public class ParkhausServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

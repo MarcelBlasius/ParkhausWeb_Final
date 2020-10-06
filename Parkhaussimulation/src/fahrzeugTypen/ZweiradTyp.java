@@ -1,7 +1,6 @@
-//Author: Lars Gebhard
-
 package fahrzeugTypen;
 
+// Author: Lars Gebhard
 public class ZweiradTyp extends Fahrzeugtypen {
 	private static ZweiradTyp instance = null;
 

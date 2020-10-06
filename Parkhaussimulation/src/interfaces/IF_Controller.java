@@ -1,15 +1,14 @@
 package interfaces;
 
-//Author: Teamarbeit
-
+// Author: Team
 public interface IF_Controller {
 
-	//Handler fuer doGet Anfragen
+	// Handler fuer doGet-Anfragen
 	public String doGet(String param);
 
-	//Handler fuer doPost Anfragen
+	// Handler fuer doPost-Anfragen
 	public String doPost(String event, String[] params);
 
-	//resette die Instanz
+	// resette die Instanz
 	public void reset();
 }

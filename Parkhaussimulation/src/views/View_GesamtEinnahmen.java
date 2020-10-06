@@ -1,6 +1,6 @@
 package views;
 
-//Author: Lars Gebhard
+// Author: Lars Gebhard
 public class View_GesamtEinnahmen extends View {
 
 	Double view;

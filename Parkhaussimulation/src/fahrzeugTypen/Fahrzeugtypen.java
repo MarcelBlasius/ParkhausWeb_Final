@@ -2,9 +2,9 @@ package fahrzeugTypen;
 
 import interfaces.IF_Fahrzeugtypen;
 
-public abstract class Fahrzeugtypen implements IF_Fahrzeugtypen{
+// Author: Jan Bauerfeind
+public abstract class Fahrzeugtypen implements IF_Fahrzeugtypen {
 
-	// Author Marius Bauerfeind
 	private double gebuehr;
 	private double quadratmeter;
 

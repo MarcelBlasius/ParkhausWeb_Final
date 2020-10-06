@@ -1,7 +1,6 @@
-//Author: Lars Gebhard
-
 package fahrzeugTypen;
 
+// Author: Lars Gebhard
 public class SuvTyp extends Fahrzeugtypen {
 	private static SuvTyp instance = null;
 

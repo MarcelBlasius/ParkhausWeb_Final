@@ -1,21 +1,20 @@
 package interfaces;
 
-//Author: Teamarbeit
-
+// Author: Team
 public interface IF_Fahrzeug {
-	
-	//Gibt die Art des Besuchers zurueck
+
+	// Gibt die Art des Besuchers zurueck
 	String getBesucherArt();
-	
-	//Gibt die ID des Fahrzeuges zurueck
+
+	// Gibt die ID des Fahrzeuges zurueck
 	String getID();
-	
-	//Gibt die den Fahrzeug Typ zurueck
+
+	// Gibt die den Fahrzeug Typ zurueck
 	String getTyp();
-	
-	//Setzt die Parkplatznummer
+
+	// Setzt die Parkplatznummer
 	public void setParkplatz(int parkplatz);
 
-	//Gibt den Parkplatz zurueck
+	// Gibt den Parkplatz zurueck
 	public int getParkplatz();
 }

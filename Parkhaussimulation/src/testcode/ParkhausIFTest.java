@@ -15,7 +15,7 @@ import produktionscode.Fahrzeug;
 import produktionscode.Parkhaus;
 import produktionscode.Statistik;
 
-//Author Marcel Blasius
+// Author: Marcel Blasius
 class ParkhausIFTest {
 
 	IF_Parkhaus p;

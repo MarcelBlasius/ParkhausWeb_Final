@@ -21,14 +21,14 @@ class ViewTest {
 
 	Statistik s;
 
-	// Author: Teamarbeit
+	// Author: Team
 	@BeforeEach
 	void setup() {
 		s = new Statistik(new ArrayList<Double>(), new ArrayList<Double>());
 
 	}
 
-	// Author: Teamarbeit
+	// Author: Team
 	@Test
 	@DisplayName("Gesamteinnahmen werden upgedatet")
 	void GesamtEinnahmenViewTest() {
@@ -41,7 +41,7 @@ class ViewTest {
 
 	}
 
-	// Author: Teamarbeit
+	// Author: Team
 	@Test
 	@DisplayName("Einnahmen-AVG wird upgedatet")
 	void EinnahmenAvgViewTest() {
@@ -114,7 +114,7 @@ class ViewTest {
 
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	@Test
 	@DisplayName("Parkdauer-Min wird upgedatet")
 	void ParkdauerMinViewTest() {
@@ -129,7 +129,7 @@ class ViewTest {
 
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	@Test
 	@DisplayName("Parkdauer-Max wird upgedatet")
 	void ParkdauerMaxViewTest() {

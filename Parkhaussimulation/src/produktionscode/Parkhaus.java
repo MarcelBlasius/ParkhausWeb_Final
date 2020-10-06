@@ -1,7 +1,6 @@
 package produktionscode;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,7 +10,7 @@ import commandPattern.ParkhausCommand;
 import interfaces.IF_Parkhaus;
 import interfaces.IF_Statistik;
 
-//Author Lars Gebhard
+// Author: Lars Gebhard
 public class Parkhaus implements IF_Parkhaus {
 
 	private String id;
@@ -28,7 +27,6 @@ public class Parkhaus implements IF_Parkhaus {
 		this.parkplaetze = new boolean[parkplaetze];
 	}
 
-	@Override
 	public int add(Fahrzeug c) {
 
 		commandList.add(new EinfahrenCommand(this));
@@ -47,7 +45,6 @@ public class Parkhaus implements IF_Parkhaus {
 		return c.getParkplatz();
 	}
 
-	@Override
 	public Fahrzeug remove(Fahrzeug c) {
 
 		commandList.add(new AusfahrenCommand(this));
@@ -59,7 +56,6 @@ public class Parkhaus implements IF_Parkhaus {
 
 	}
 
-	@Override
 	public Fahrzeug[] cars() {
 		Fahrzeug[] carray = new Fahrzeug[carlist.size()];
 		int pointer = 0;
@@ -107,23 +103,24 @@ public class Parkhaus implements IF_Parkhaus {
 	public boolean[] getParkplaetzeBelegtArray() {
 		return parkplaetze;
 	}
-	
+
 	public void setParkplaetzeBelegtArray(boolean[] parkplaetze) {
 		this.parkplaetze = parkplaetze;
-		
+
 	}
 
 	public IF_Statistik getStatistik() {
 		return s;
 	}
-	
-	public List<Fahrzeug> getCarlist(){
+
+	public List<Fahrzeug> getCarlist() {
 		return carlist;
 	}
-	
+
 	public void setCarlist(List<Fahrzeug> carlist) {
 		this.carlist = carlist;
 	}
+
 	public void setStatistik(IF_Statistik statistik) {
 		this.s = statistik;
 	}
@@ -133,7 +130,5 @@ public class Parkhaus implements IF_Parkhaus {
 			commandList.remove(commandList.size() - 1).undo();
 		}
 	}
-
-
 
 }

@@ -7,8 +7,8 @@ import interfaces.IF_Statistik;
 import produktionscode.Fahrzeug;
 import produktionscode.Parkhaus;
 
-//Author Marius Bauerfeind
-public abstract class ParkhausCommand implements IF_Commands{
+// Author: Jan Bauerfeind
+public abstract class ParkhausCommand implements IF_Commands {
 	Parkhaus p;
 
 	private List<Fahrzeug> carlist;

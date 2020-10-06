@@ -2,7 +2,7 @@ package produktionscode;
 
 import interfaces.IF_Fahrzeug;
 
-//Author: Marius Bauerfeind
+// Author: Jan Bauerfeind
 public class Fahrzeug implements IF_Fahrzeug {
 
 	private String id;
@@ -17,17 +17,14 @@ public class Fahrzeug implements IF_Fahrzeug {
 
 	}
 
-	@Override
 	public String getBesucherArt() {
 		return besucherArt;
 	}
 
-	@Override
 	public String getTyp() {
 		return typ;
 	}
 
-	@Override
 	public String getID() {
 		return id;
 	}

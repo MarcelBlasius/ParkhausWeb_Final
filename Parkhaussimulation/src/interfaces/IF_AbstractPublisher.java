@@ -2,12 +2,12 @@ package interfaces;
 
 import views.View;
 
-//Author Teamarbeit
+// Author: Team
 public interface IF_AbstractPublisher {
-	
-	//Registriert die View
+
+	// Registriert die View
 	public void addView(View view);
-	
-	//Aktualisieren aller registrierten Views
+
+	// Aktualisieren aller registrierten Views
 	public void update();
 }

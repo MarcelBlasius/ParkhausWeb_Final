@@ -1,9 +1,9 @@
 package interfaces;
 
-//Author Teamarbeit
+// Author: Team
 public interface IF_State {
 
-	//Get und Set Methoden fuer die jeweiligen Instanzvariablen
+	// Get und Set Methoden fuer die jeweiligen Instanzvariablen
 	public Double getGesamtEinnahmen();
 
 	public Double getAvgEinnahmen();

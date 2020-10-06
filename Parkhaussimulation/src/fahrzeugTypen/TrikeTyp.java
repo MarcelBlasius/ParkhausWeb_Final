@@ -1,7 +1,6 @@
-//Author: Lars Gebhard
-
 package fahrzeugTypen;
 
+// Author: Lars Gebhard
 public class TrikeTyp extends Fahrzeugtypen {
 	private static TrikeTyp instance = null;
 

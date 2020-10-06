@@ -17,8 +17,8 @@ import views.View_ParkdauerAvg;
 import views.View_ParkdauerMax;
 import views.View_ParkdauerMin;
 
-public class Controller implements IF_Controller{
-	// Author: Teamarbeit
+public class Controller implements IF_Controller {
+
 	DecimalFormat formatToEuro = new DecimalFormat("#0.00");
 	DecimalFormat formatToSeconds = new DecimalFormat("#0.000");
 	private IF_Parkhaus p;
@@ -47,7 +47,7 @@ public class Controller implements IF_Controller{
 		return instance;
 	}
 
-	// Author: Teamarbeit
+	// Author: Team
 	public String doGet(String param) {
 
 		switch (param) {
@@ -83,12 +83,12 @@ public class Controller implements IF_Controller{
 		case ("Anteil_Fahrzeugtypen"): {
 			return Anteil_Fahrzeugtypen();
 		}
-		
-		case ("config&name"):{
+
+		case ("config&name"): {
 			return null;
 		}
-		
-		case ("cars&name"):{
+
+		case ("cars&name"): {
 			return null;
 		}
 
@@ -100,7 +100,7 @@ public class Controller implements IF_Controller{
 
 	}
 
-	// Author: Teamarbeit
+	// Author: Team
 	public String doPost(String event, String[] params) {
 
 		switch (event) {
@@ -121,30 +121,29 @@ public class Controller implements IF_Controller{
 		case ("full"): {
 			return null;
 		}
-		
-		case ("change_open_from"):{
+
+		case ("change_open_from"): {
 			return null;
 		}
-		
-		case ("change_open_to"):{
+
+		case ("change_open_to"): {
 			return null;
 		}
 		default:
 			System.out.println("Event im Post nicht gefunden " + event);
-			return("Event im Post nicht gefunden " + event);
-			
+			return ("Event im Post nicht gefunden " + event);
 
 		}
-	
+
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	private String Gesamteinnahmen() {
 
 		return ("Gesamteinnahmen: " + formatToEuro.format(view_gesamtEinnahmen.getView()) + " Euro");
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	private String avg() {
 		if (view_einnahmenAvg.getView() != 0d) {
 			return ("Durchschnittspreis: " + formatToEuro.format(view_einnahmenAvg.getView()) + " Euro | "
@@ -154,7 +153,7 @@ public class Controller implements IF_Controller{
 		}
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	private String Besucheranzahl() {
 		if (view_besucherAnzahl.getView() != 0d) {
 
@@ -165,7 +164,7 @@ public class Controller implements IF_Controller{
 		}
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	private String min() {
 		if (view_parkdauerMin.getView() != 0d) {
 
@@ -177,7 +176,7 @@ public class Controller implements IF_Controller{
 		}
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	private String max() {
 		if (view_parkdauerMax.getView() != 0d) {
 
@@ -188,7 +187,7 @@ public class Controller implements IF_Controller{
 		}
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	private String Anteil_Besucher() {
 		int[] besuchergesamt = s.getGesamtBesucherArray();
 
@@ -203,7 +202,7 @@ public class Controller implements IF_Controller{
 		return root.toString();
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	private String Einnahmen_pro_Kategorie() {
 
 		double[] einnahmenKategorie = s.getEinnahmenKategorieArray();
@@ -219,6 +218,7 @@ public class Controller implements IF_Controller{
 		return (root.toString());
 	}
 
+	// Author: Lars Gebhard
 	private String Anteil_Fahrzeugtypen() {
 		int[] fahrzeugtypengesamt = s.getGesamtFahrzeugtypenArray();
 
@@ -236,12 +236,12 @@ public class Controller implements IF_Controller{
 		return root.toString();
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	private String enter(String[] params) {
 		return String.valueOf(p.add(new Fahrzeug(params[1], params[8], params[9])));
 	}
 
-	// Author: Marius Bauerfeind
+	// Author: Jan Bauerfeind
 	private String leave(String[] params) {
 		String priceString = params[4];
 		float dauer = Float.parseFloat(params[3]);
@@ -281,7 +281,7 @@ public class Controller implements IF_Controller{
 	public void reset() {
 		init();
 	}
-	
+
 	private void init() {
 		this.p = new Parkhaus("0", 10, new ArrayList<Fahrzeug>(),
 				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));

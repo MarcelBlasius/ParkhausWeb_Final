@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import interfaces.IF_State;
 import views.State;
 
+// Author: Lars Gebhard
 class StateTest {
 
 	IF_State s = new State();
@@ -25,7 +26,7 @@ class StateTest {
 		s.setAvgEinnahmen(10.5);
 		assertEquals(10.5, s.getAvgEinnahmen());
 	}
-	
+
 	@Test
 	@DisplayName("Einnahmenminimum wird korrekt gespeichert")
 	void minEinnahmenTest() {
@@ -33,7 +34,7 @@ class StateTest {
 		;
 		assertEquals(10.5, s.getMinEinnahmen());
 	}
-	
+
 	@Test
 	@DisplayName("Einnahmenmaximum wird korrekt gespeichert")
 	void maxEinnahmenTest() {
@@ -47,7 +48,7 @@ class StateTest {
 		s.setAvgParkdauer(5.5);
 		assertEquals(5.5, s.getAvgParkdauer());
 	}
-	
+
 	@Test
 	@DisplayName("Parkdauerminimum wird korrekt gespeichert")
 	void minParkdauerTest() {
@@ -55,7 +56,7 @@ class StateTest {
 		;
 		assertEquals(5.5, s.getMinParkdauer());
 	}
-	
+
 	@Test
 	@DisplayName("Parkdauermaximum wird korrekt gespeichert")
 	void maxParkdauerTest() {

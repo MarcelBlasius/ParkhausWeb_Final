@@ -1,6 +1,6 @@
 package views;
 
-//Author: Marius Bauerfeind
+//Author: Jan Bauerfeind
 public class View_ParkdauerMin extends View {
 	Double view;
 

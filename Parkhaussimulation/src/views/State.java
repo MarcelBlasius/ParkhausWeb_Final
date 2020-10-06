@@ -2,7 +2,7 @@ package views;
 
 import interfaces.IF_State;
 
-//Author Marcel Blasius
+// Author: Marcel Blasius
 public class State implements IF_State {
 
 	private Double GesamtEinnahmen;
