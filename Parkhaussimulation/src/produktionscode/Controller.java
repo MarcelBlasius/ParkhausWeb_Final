@@ -282,6 +282,7 @@ public class Controller implements IF_Controller {
 		init();
 	}
 
+	// Author: Lars Gebhard
 	private void init() {
 		this.p = new Parkhaus("0", 10, new ArrayList<Fahrzeug>(),
 				new Statistik(new ArrayList<Double>(), new ArrayList<Double>()));
