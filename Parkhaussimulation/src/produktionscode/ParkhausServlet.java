@@ -28,7 +28,7 @@ public class ParkhausServlet extends HttpServlet {
 		String command = requestParamString[0];
 		String param = requestParamString[1];
 
-		IF_Controller c = getPersistentController();
+		Controller c = (Controller) getPersistentController();
 
 		System.out.println("Command = " + command);
 		System.out.println("Param = " + param);
@@ -37,7 +37,7 @@ public class ParkhausServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			String ausgabe = c.doGet(param);
 			out.println(ausgabe);
-			System.out.println(ausgabe);
+			System.out.println("Get ausgabe: " + ausgabe);
 		}
 
 	}
@@ -63,7 +63,6 @@ public class ParkhausServlet extends HttpServlet {
 			}
 		}
 		setPersistentController(c);
-
 	}
 
 	private static String getBody(HttpServletRequest request) throws IOException {

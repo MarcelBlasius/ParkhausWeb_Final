@@ -83,6 +83,14 @@ public class Controller implements IF_Controller{
 		case ("Anteil_Fahrzeugtypen"): {
 			return Anteil_Fahrzeugtypen();
 		}
+		
+		case ("config&name"):{
+			return null;
+		}
+		
+		case ("cars&name"):{
+			return null;
+		}
 
 		default:
 			System.out.println("Fehler Controller createResonse " + param);
@@ -107,11 +115,19 @@ public class Controller implements IF_Controller{
 
 		case ("change_max"): {
 			change_max(params);
-			break;
+			return null;
 		}
 
 		case ("full"): {
-			break;
+			return null;
+		}
+		
+		case ("change_open_from"):{
+			return null;
+		}
+		
+		case ("change_open_to"):{
+			return null;
 		}
 		default:
 			System.out.println("Event im Post nicht gefunden " + event);
@@ -119,9 +135,7 @@ public class Controller implements IF_Controller{
 			
 
 		}
-		
-		//default return
-		return (event + " behandelt");
+	
 	}
 
 	// Author: Marius Bauerfeind
@@ -155,8 +169,8 @@ public class Controller implements IF_Controller{
 	private String min() {
 		if (view_parkdauerMin.getView() != 0d) {
 
-			return ("Min Parkgebuehr: " + formatToEuro.format(view_einnahmenMin.getView()) + " Euro bei "
-					+ formatToSeconds.format(view_parkdauerMin.getView()) + " Sekunden Parkdauer");
+			return ("Min Parkgebuehr: " + formatToEuro.format(view_einnahmenMin.getView()) + " Euro | Min Parkdauer: "
+					+ formatToSeconds.format(view_parkdauerMin.getView()) + " Sekunden");
 		} else {
 			return "Es wurde noch kein Parkticket bezahlt.";
 
@@ -167,8 +181,8 @@ public class Controller implements IF_Controller{
 	private String max() {
 		if (view_parkdauerMax.getView() != 0d) {
 
-			return ("max Parkgebuehr: " + formatToEuro.format(view_einnahmenMax.getView()) + " Euro bei "
-					+ formatToSeconds.format(view_parkdauerMax.getView()) + " Sekunden Parkdauer");
+			return ("Max Parkgebuehr: " + formatToEuro.format(view_einnahmenMax.getView()) + " Euro | Max Parkdauer: "
+					+ formatToSeconds.format(view_parkdauerMax.getView()) + " Sekunden");
 		} else {
 			return "Es wurde noch kein Parkticket bezahlt.";
 		}
