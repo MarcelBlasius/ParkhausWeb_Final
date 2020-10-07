@@ -1,7 +1,7 @@
 # ParkhausWeb_Final
 Parkhaussimulation für SE1
 
-Digitalisierungskonzept:https://github.com/MarcelBlasius/ParkhausWeb_Final/blob/master/Digitalisierungskonzept.pdf
+Digitalisierungskonzept:https://github.com/MarcelBlasius/ParkhausWeb_Final/blob/master/Digitalisierungskonzept.pdf \n
 User-Stories: https://github.com/MarcelBlasius/ParkhausWeb_Final/blob/master/UserStories.pdf
 Kanban-Bord: https://github.com/MarcelBlasius/ParkhausWeb_Final/blob/master/Beispielhafte_Nutzung_des_Kanban_Boards.pdf
 Priorisierung der User-Stories und MVP: https://github.com/MarcelBlasius/ParkhausWeb_Final/blob/master/MVP.pdf
